@@ -3,6 +3,9 @@
 .vscode/
 *.iml
 
+# Claude Code 本地配置
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
