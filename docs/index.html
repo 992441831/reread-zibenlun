@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重读马克思 · 系列专题报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        /* 头部 */
+        .hero {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.12) 0%, rgba(15, 52, 96, 0.3) 100%);
+            border-radius: 20px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.06) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.6em;
+            color: #e94560;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 4px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15em;
+            color: #a0a0a0;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .hero .quote {
+            color: #888;
+            font-size: 0.95em;
+            max-width: 560px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 报告卡片 */
+        .reports {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 32px 36px;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #e94560, transparent);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(233, 69, 96, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card .number {
+            font-size: 0.85em;
+            color: #e94560;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        .card .desc {
+            color: #a0a0a0;
+            font-size: 0.98em;
+            margin-bottom: 16px;
+        }
+
+        .card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card .tag {
+            font-size: 0.78em;
+            color: #c9c9c9;
+            background: rgba(233, 69, 96, 0.12);
+            border: 1px solid rgba(233, 69, 96, 0.25);
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        .card .arrow {
+            position: absolute;
+            right: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e94560;
+            font-size: 1.4em;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .card:hover .arrow {
+            opacity: 1;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9em; }
+            .card { padding: 24px; }
+            .card h2 { font-size: 1.25em; }
+            .card .arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="icon">📚</div>
+                <h1>重读马克思</h1>
+                <p class="subtitle">—— 以《资本论》的方法，审视 21 世纪的资本主义新形态</p>
+                <p class="quote">"哲学家们只是用不同的方式解释世界，而问题在于改变世界。"</p>
+            </div>
+        </div>
+
+        <div class="reports">
+            <a class="card" href="labor-theory-of-value.html">
+                <div class="number">报告 01</div>
+                <h2>劳动价值论在知识经济时代的适用性</h2>
+                <p class="desc">当知识、数据成为核心生产要素，当 AI 开始替代人类劳动——马克思的劳动价值论是否仍然具有解释力？</p>
+                <div class="tags">
+                    <span class="tag">劳动价值论</span>
+                    <span class="tag">知识经济</span>
+                    <span class="tag">数字劳动</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+
+            <a class="card" href="996-vs-factory-acts.html">
+                <div class="number">报告 02</div>
+                <h2>当代"996"与19世纪工厂法的对比分析</h2>
+                <p class="desc">从曼彻斯特的纺织车间到互联网写字楼，剩余价值榨取的逻辑延续了吗？历史在重复吗？</p>
+                <div class="tags">
+                    <span class="tag">996</span>
+                    <span class="tag">剩余价值</span>
+                    <span class="tag">工厂法</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+
+            <a class="card" href="digital-rent.html">
+                <div class="number">报告 03</div>
+                <h2>数字地租</h2>
+                <p class="desc">21世纪的"土地"变成了数据，"地主"化身为平台巨头——与《资本论》第三卷地租理论的对话。</p>
+                <div class="tags">
+                    <span class="tag">数字地租</span>
+                    <span class="tag">数据垄断</span>
+                    <span class="tag">平台资本主义</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+
+            <a class="card" href="algorithm-capitalist.html">
+                <div class="number">报告 04</div>
+                <h2>算法资本家</h2>
+                <p class="desc">算法不再是中性的技术工具，而是一种新型的资本控制手段——平台经济中的新剥削形式。</p>
+                <div class="tags">
+                    <span class="tag">算法管理</span>
+                    <span class="tag">平台经济</span>
+                    <span class="tag">数字无产阶级</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+
+            <a class="card" href="financialization.html">
+                <div class="number">报告 05</div>
+                <h2>金融化：虚拟资本的膨胀与金融危机</h2>
+                <p class="desc">从雷曼破产到加密货币泡沫——基于马克思虚拟资本理论，透视金融化的内在逻辑与周期性危机。</p>
+                <div class="tags">
+                    <span class="tag">金融化</span>
+                    <span class="tag">虚拟资本</span>
+                    <span class="tag">金融危机</span>
+                </div>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>重读马克思系列报告 · 2026年7月</p>
+            <p style="margin-top: 8px;">Markdown 版本与源码见 <a href="https://github.com/">GitHub 仓库</a></p>
+        </div>
+    </div>
+</body>
+</html>
