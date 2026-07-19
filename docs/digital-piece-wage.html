@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计件工资的数字化复活：从曼彻斯特的计件工牌到外卖骑手的计价器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #1a202c;
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #2d3748;
+            font-size: 20px;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #4a5568;
+            font-size: 17px;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #2d3748;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+            border-left: 5px solid #4299e1;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border-left: 5px solid #e53e3e;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border-left: 5px solid #48bb78;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .theory-box {
+            background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+            border-left: 5px solid #805ad5;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #4a5568;
+            font-size: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 10px;
+            font-style: normal;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        tr:hover {
+            background: #edf2f7;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 40px 0;
+        }
+
+        .formula {
+            background: #1a202c;
+            color: #68d391;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+        }
+
+        .footer {
+            background: #f7fafc;
+            padding: 30px 40px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 0 5px 5px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧾 计件工资的数字化复活</h1>
+            <div class="subtitle">从曼彻斯特的计件工牌到外卖骑手的计价器<br>—— 基于《资本论》第一卷第19章的分析</div>
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <strong>核心论点：</strong>计件工资不是被工业文明淘汰的"前现代遗迹"。马克思在《资本论》第一卷第19章中断言，它是"<strong>最适合于资本主义生产方式的工资形式</strong>"。平台经济真正的"创新"，是用算法把19世纪的计件制升级为全自动的榨取系统：单价动态可调、强度写进配送时限、罚款由代码执行、工人靠排行榜互相竞争。外卖骑手"跑一单赚一单"的自由表象下，运转着马克思逐条分析过的全部机制——只是这一次，单价由算法实时压低，而工人甚至无法确认自己是工人。
+            </div>
+
+            <h2>一、引言：手机上的计价器</h2>
+
+            <p>早上7点，骑手老李上线，计价器开始跳动。每送一单，App实时播报"到账4.8元"；跑满30单，解锁50元冲单奖；超时扣一半，差评扣50元。电动车是租的，电池是租的，每天3元的保险从收入里自动扣除。晚上10点收工：在线13小时，完成47单，毛收入231元。</p>
+
+            <p>这不是零工经济的边缘景观，而是当代劳动的主流形态之一：</p>
+
+            <ul>
+                <li><strong>数据标注员</strong>：每框选一张图片中的行人，账户增加几分钱</li>
+                <li><strong>网约车司机</strong>：每一单流水实时可见，平台抽成比例清晰可见却又不断变动</li>
+                <li><strong>网文作者、短视频创作者</strong>：按千字、按播放量分成</li>
+                <li><strong>众包程序员、设计外包</strong>：按功能点、按件计价</li>
+            </ul>
+
+            <div class="theory-box">
+                <strong>问题的提出：</strong>这里有一个悖论——最先进的数字平台，采用的却是马克思在1867年就已透彻分析过的19世纪工资形式。为什么是"计件"而不是"计时"？流行的解释（"灵活就业是工人的自主选择""算法提高了匹配效率"）回答不了一个追问：如果灵活就是目的，为什么不可以是"计时+灵活排班"？
+                <p style="margin-top: 12px; margin-bottom: 0;">马克思给出的方向是：<strong>工资形式从来不是中性的技术安排，而是服务于剩余价值榨取的社会形式。</strong>计件制在21世纪复活，必有其榨取逻辑上的理由。</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2>二、理论基石：《资本论》第19章讲了什么</h2>
+
+            <h3>2.1 计件工资是计时工资的转化形式</h3>
+
+            <p>马克思首先拆穿了计件工资的"独立性"——它不是什么新的报酬原则，只是计时工资的换算：</p>
+
+            <div class="formula">
+                计件单价 = 劳动力的日价值（日工资）÷ 一天生产的产品数量<br>
+                <br>
+                计时工资：劳动由劳动的持续时间来计量<br>
+                计件工资：劳动由一定时间内凝结成的产品数量来计量
+            </div>
+
+            <div class="quote">
+                "计件工资无非是计时工资的转化形式，正如计时工资是劳动力的价值或价格的转化形式一样。"
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <div class="warning-box">
+                <span class="emoji">⚠️</span> <strong>关键词是"转化形式"：</strong>"工资支付形式的区别丝毫没有改变工资的本质，虽然其中一种形式可以比另一种形式更有利于资本主义生产的发展。"计件制改变的只是<strong>计量的外观</strong>，不是剥削的实质——但它的外观恰恰更有利于剥削。
+            </div>
+
+            <h3>2.2 假象：工人出卖的是"产品"，而非劳动力</h3>
+
+            <p>计时工资已经把<strong>劳动力的价值</strong>伪装成<strong>劳动的价值</strong>；计件工资在此基础上再加一层伪装——把出卖劳动力伪装成出卖产品。工人看着自己生产的一件件产品、一笔笔进账，很容易相信：我卖的是我的劳动成果，谁剥削了我？</p>
+
+            <div class="quote">
+                计件工资造成一种假象："似乎工人出卖的不是他的劳动力，而是物化在产品中的劳动。"
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <h3>2.3 自我鞭策：监督大部分成为多余</h3>
+
+            <p>计时工资下，资本必须雇佣监工来维持劳动强度；计件工资下，工人的收入直接绑定产量，<strong>工人自己变成了自己的监工</strong>。</p>
+
+            <div class="quote">
+                计件工资使"劳动的质量和强度由工资形式本身来控制"，因此"对劳动的监督大部分就成为多余的了"。
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <p>同时，计件单价还"为资本家提供了一个十分确定的计算劳动强度的尺度"——达不到平均产量的工人会被直接淘汰，无须监工驱赶。</p>
+
+            <h3>2.4 克扣与欺诈的最丰富的源泉</h3>
+
+            <p>产品必须达到"平均质量"才能获得全额计件价，而质量的裁判权握在资本手中。验收挑剔、标准浮动、随意罚款由此而生：</p>
+
+            <div class="quote">
+                "计件工资是克扣工资和进行资本主义欺诈的最丰富的源泉。"
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <h3>2.5 层层剥削的制度基础</h3>
+
+            <p>计件制天然适合中间盘剥：资本家不必直接管理工人，把活计按件发包给包工头，包工头再抽头转包。马克思指出，计件工资因此成为现代家庭劳动和<strong>"层层剥削和压迫的制度"</strong>的基础。</p>
+
+            <h3>2.6 趋势：个别工资上升，平均水平下降</h3>
+
+            <p>这是第19章最深刻的论断。计件制刺激每个工人提高强度、延长时间；少数"能手"拉高了平均产量；资本随即按新的平均产量压低单价——全体工人必须付出更多劳动，才能挣回原来的日工资。</p>
+
+            <div class="quote">
+                "计件工资有一种趋势，在把个别工资提高到平均水平以上的同时，把这个水平本身降低。"
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="emoji">🔑</span> <strong>小结：</strong>假象、自我鞭策、克扣、盘剥、竞争压价——五重机制合一，马克思由此得出结论："<strong>计件工资是最适合于资本主义生产方式的工资形式。</strong>"请记住这个判断。它不是19世纪的局部结论，而是理解21世纪平台经济的钥匙。
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2>三、一张表：19世纪计件制 × 21世纪数字计件制</h2>
+
+            <table>
+                <tr>
+                    <th>计件制的机制</th>
+                    <th>19世纪工厂与家庭工业</th>
+                    <th>21世纪平台经济</th>
+                </tr>
+                <tr>
+                    <td><strong>产量计量</strong></td>
+                    <td>工头清点纱锭、织品</td>
+                    <td>GPS与算法自动记录，精确到秒与米</td>
+                </tr>
+                <tr>
+                    <td><strong>单价制定</strong></td>
+                    <td>雇主按行规定价，相对稳定</td>
+                    <td>算法动态调价，距离、天气、时段、供需全参数化</td>
+                </tr>
+                <tr>
+                    <td><strong>强度维持</strong></td>
+                    <td>工人怕单价被压而自觉拼命</td>
+                    <td>冲单奖、等级制、"预计送达时间"倒计时</td>
+                </tr>
+                <tr>
+                    <td><strong>克扣方式</strong></td>
+                    <td>验收挑剔、罚款、实物工资</td>
+                    <td>超时扣款、差评扣款、抽检扣款，由代码自动执行</td>
+                </tr>
+                <tr>
+                    <td><strong>中间盘剥</strong></td>
+                    <td>包工头、散发原料的家庭工业</td>
+                    <td>站点加盟商、劳务外包、租车租电池的产业链</td>
+                </tr>
+                <tr>
+                    <td><strong>生产资料</strong></td>
+                    <td>工人自备针线、织机</td>
+                    <td>骑手自备电动车、手机、流量、装备，或按日租用</td>
+                </tr>
+                <tr>
+                    <td><strong>工人竞争</strong></td>
+                    <td>同一车间内的有限竞争</td>
+                    <td>全城骑手经算法实时竞价，原子化进行</td>
+                </tr>
+                <tr>
+                    <td><strong>雇佣关系</strong></td>
+                    <td>形式上的雇佣合同</td>
+                    <td>"合作伙伴""个体工商户"——雇佣关系在法律上被否认</td>
+                </tr>
+            </table>
+
+            <div class="section-divider"></div>
+
+            <h2>四、解剖数字计件制：算法如何把马克思的机制推向极致</h2>
+
+            <div class="highlight-box">
+                <span class="emoji">🔗</span> <strong>本报告与系列报告的递进关系：</strong>第4篇（算法资本家）讲算法如何<strong>控制</strong>劳动过程，第6篇（35岁危机与产业后备军）讲骑手作为流动后备军的<strong>蓄水池</strong>地位，本篇讲他们的<strong>工资形式本身</strong>——计件制——如何完成榨取。
+            </div>
+
+            <h3>4.1 单价的算法化与"收入天花板"</h3>
+
+            <p>马克思的换算公式在平台手里被自动化了。平台掌握着两个关键数据：一个城市的劳动力再生产需要多少日收入（骑手每天得挣到多少钱才不至于退出），以及骑手平均能跑多少单。于是：</p>
+
+            <div class="formula">
+                计件单价 ≈ 目标日收入 ÷ 平均单量
+            </div>
+
+            <p>骑手的收入史为马克思的"趋势"论断提供了完整实证：补贴大战期，月入过万的骑手故事吸引海量劳动力涌入（呼应第6篇：后备军的蓄水池功能）；供给充足之后，公开报道显示主要城市的每单收入从早期的8—10元逐步降至4—6元，骑手必须跑更多的单、在线更长的时间，才能挣回原来的日收入。<strong>19世纪以"年"为单位完成的单价下压，算法以季度甚至月度完成。</strong></p>
+
+            <h3>4.2 强度的时间化："预计送达时间"作为强度标准</h3>
+
+            <p>马克思说，计件工资给资本提供了"十分确定的计算劳动强度的尺度"。算法更进一步：它把强度标准直接写成倒计时，挂在骑手的手机屏幕上。</p>
+
+            <p>《人物》杂志2020年的报道《外卖骑手，困在系统里》记录了这条压缩曲线：同样一段配送路程，系统给出的时限逐年缩短，骑手只能用逆行、闯红灯、超速来兑付被压缩的时间。<strong>计件单价决定"跑多少"，配送时限决定"跑多快"</strong>——劳动的数量与强度被分别控制、同步拧紧，榨取达到了双重精确。</p>
+
+            <h3>4.3 克扣的自动化：罚款即代码</h3>
+
+            <p>19世纪的工头挑剔产品，多少还要消耗管理成本；平台的罚款零成本、全自动：超时扣款、差评扣款、抽检（如"微笑行动"）不合格扣款。计价规则、派单逻辑、处罚条款由平台单方制定、随时修改——马克思所说的"资本主义欺诈的最丰富的源泉"，如今获得了API接口。</p>
+
+            <div class="warning-box">
+                <span class="emoji">⚠️</span> <strong>申诉的对象是算法：</strong>工人被扣款后，面对的是一个没有面孔的裁判。19世纪的工人至少还能与工头争吵、向工会申诉；数字计件工人连一个可以吵架的对象都找不到。
+            </div>
+
+            <h3>4.4 竞争的游戏化：排行榜与"跑单王"</h3>
+
+            <p>马克思指出，计件制激发工人之间的竞争，而这种竞争正是单价下压的内燃机。平台把这台内燃机做成了游戏：从青铜到王者的骑手等级、单量排行榜、恶劣天气的限时冲单奖。工人之间的竞争取代了工人与资本之间的博弈（呼应第6篇"内卷的微观经济学"），游戏化的外壳则把榨取强度外包给了多巴胺。</p>
+
+            <h3>4.5 包工头的复活：加盟商与劳务外包</h3>
+
+            <p>专送骑手并不隶属于平台，而隶属于层层转包的"配送加盟商"；平台把用工风险、社保义务、罚款执行一路下放。19世纪的包工头从工人工资中抽头，21世纪的加盟商从每一单配送费中分成——马克思笔下的"层层剥削和压迫的制度"，完成了平台化升级。一旦发生工伤事故，平台、加盟商、劳务公司互相推诿，工人甚至找不到法律意义上的雇主。</p>
+
+            <h3>4.6 假象的完成形态：从计件工人到"个体工商户"</h3>
+
+            <p>马克思揭示的计件假象是意识形态层面的：工人<strong>以为</strong>自己出卖的是产品。平台把这一假象从观念升级为法律关系：骑手被注册为"合作伙伴"乃至"个体工商户"。</p>
+
+            <ul>
+                <li>"我跑一单赚一单，平台只是给我派活的中介"——计件工资的假象至此完美实现，工人连"工人"的自我认知都被注销</li>
+                <li>计时工资的工人至少知道自己被雇佣；数字计件工人以为"自己是自己的老板"——这是拜物教的完成形态</li>
+                <li>然而算法对劳动过程的控制（派单不可拒、时限不可议、处罚不可抗、封号即失业）暴露了实质上的从属性：<strong>名义上的个体户，实质上的计件工人</strong></li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2>五、超越马克思：数字计件制的四个新特征</h2>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>新特征</th>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>动态定价</strong></td>
+                    <td>马克思时代的计件单价一旦议定便相对稳定，靠工人竞争逐年下压；算法时代单价可以每日浮动、千人千面——价格歧视进入了工资领域</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>监督的双重化</strong></td>
+                    <td>马克思说计件使监督"大部分成为多余"；平台却既计件又全景监控（GPS轨迹、拍照抽检、超时倒计时）——计件负责激励，监控负责纪律，榨取与控制合一（呼应第4篇）</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>计件的泛化</strong></td>
+                    <td>从体力劳动扩散到知识与创意劳动：网文按订阅分成、视频按播放分成、设计按件计价、众包按任务结算——知识劳动正在计件化（呼应第1篇）</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>最锋利的反讽</strong></td>
+                    <td>训练人工智能的数据标注业，运行着全书中最原始的计件制——据报道每条标注的报酬从几分钱到几角钱不等。<strong>最先进的生产力，建立在最古老的工资形式上</strong></td>
+                </tr>
+            </table>
+
+            <div class="section-divider"></div>
+
+            <h2>六、结论</h2>
+
+            <h3>核心发现</h3>
+
+            <ol>
+                <li><strong>计件制不是前现代遗迹，而是马克思认证的"最适合于资本主义生产方式的工资形式"</strong>——平台经济复活它，是因为算法需要可精确计量的劳动来喂养榨取机器</li>
+                <li><strong>数字计件制把马克思分析的机制全部自动化</strong>：单价由算法压、强度由时限逼、罚款由代码扣、竞争由排行榜点燃、盘剥由加盟商执行</li>
+                <li><strong>"多劳多得"是最深的迷雾</strong>：个别骑手确实多劳多得，但全体骑手的单价因此被压低——个体理性合成集体贫困，这正是马克思所说的"趋势"</li>
+                <li><strong>假象的极致是法律形态</strong>：当骑手被登记为"个体工商户"，计件工资的拜物教从观念升级为制度，工人甚至失去了"工人"的身份</li>
+            </ol>
+
+            <h3>出路</h3>
+
+            <table>
+                <tr>
+                    <th>层面</th>
+                    <th>方向</th>
+                </tr>
+                <tr>
+                    <td><strong>制度</strong></td>
+                    <td>劳动关系认定回到"从属性"标准（算法控制=雇佣）；职业伤害保障扩面；计价与处罚规则备案、透明化，落实"算法取中"</td>
+                </tr>
+                <tr>
+                    <td><strong>分配</strong></td>
+                    <td>从"最低时薪"走向"最低单价+在线时间兜底"的双轨保障；社保可携带、按单缴费</td>
+                </tr>
+                <tr>
+                    <td><strong>工时</strong></td>
+                    <td>最长在线时限与强制休息；极端天气停止派单或自动加价，而不是发放"冲单奖"</td>
+                </tr>
+                <tr>
+                    <td><strong>观念</strong></td>
+                    <td>戳破"多劳多得"的神话：单价不公开透明的计件制，本质是黑箱定价；"自由接单"不等于自由劳动</td>
+                </tr>
+            </table>
+
+            <div class="insight-box">
+                <span class="emoji">🌍</span> <strong>国际镜鉴：</strong>英国最高法院2021年裁定Uber司机属于"worker"（享有最低工资与休假权利）；西班牙2021年"骑手法"推定平台骑手为雇员并要求算法透明；欧盟2024年通过《平台工作指令》，以"法律推定雇佣"原则回应"个体户"话术。计件制从未被驯服，但它的边界每一次都是法律划出来的——19世纪靠工厂法，21世纪要靠算法治理。
+            </div>
+
+            <h3>马克思的启示</h3>
+
+            <div class="quote">
+                "计件工资是最适合于资本主义生产方式的工资形式。"
+                <div class="quote-author">—— 马克思《资本论》第一卷第19章</div>
+            </div>
+
+            <div class="insight-box">
+                <span class="emoji">📌</span> <strong>最后的判断：</strong>当一个骑手看着手机上"今日已赚231元"的数字时，他看到的是自己劳动的价格；马克思教我们看到的是另一笔账——这个数字恰好锚定在他的劳动力一天的价值上，而平台从每一笔订单中抽走的部分，从不显示在计价器上。<strong>计件工资的全部秘密就在于：它让被剥削者亲手为自己计价，并在"多劳多得"的满足感中，完成对自己的剥削。</strong>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>报告生成时间：</strong>2026年7月19日</p>
+            <p><strong>作者：</strong>张博士（AI助手）</p>
+            <p><strong>理论基础：</strong>马克思《资本论》第一卷第六篇（第19章·计件工资）</p>
+            <p style="margin-top: 15px;">
+                <span class="tag">计件工资</span>
+                <span class="tag">平台经济</span>
+                <span class="tag">外卖骑手</span>
+                <span class="tag">算法管理</span>
+                <span class="tag">《资本论》第一卷</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

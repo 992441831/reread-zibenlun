@@ -16,6 +16,8 @@
 | 04 | [算法资本家](reports/04-算法资本家.md) | 算法管理作为新型资本控制手段 | 《资本论》第一卷 |
 | 05 | [金融化：虚拟资本的膨胀与金融危机](reports/05-金融化与虚拟资本.md) | 虚拟资本膨胀与周期性金融危机 | 《资本论》第三卷·虚拟资本 |
 | 06 | [35岁危机与产业后备军](reports/06-35岁危机与产业后备军.md) | 相对过剩人口的三种形态与当代就业困境 | 《资本论》第一卷·资本主义积累的一般规律 |
+| 07 | [计件工资的数字化复活](reports/07-计件工资的数字化复活.md) | 计件工资从19世纪工厂到外卖/网约车平台的复活与算法化升级 | 《资本论》第一卷·计件工资 |
+| 08 | [数据圈地运动](reports/08-数据圈地运动.md) | 原始积累的当代重演：平台对用户数据与数字公地的圈占 | 《资本论》第一卷·所谓原始积累 |
 
 ## 🌐 在线阅读（精美排版版）
 
@@ -35,7 +37,9 @@ reread-zibenlun/
 │   ├── 03-数字地租.md
 │   ├── 04-算法资本家.md
 │   ├── 05-金融化与虚拟资本.md
-│   └── 06-35岁危机与产业后备军.md
+│   ├── 06-35岁危机与产业后备军.md
+│   ├── 07-计件工资的数字化复活.md
+│   └── 08-数据圈地运动.md
 └── docs/              # 精美排版 HTML（用于 GitHub Pages 展示）
     ├── index.html     # 导航首页
     ├── labor-theory-of-value.html
@@ -43,7 +47,9 @@ reread-zibenlun/
     ├── digital-rent.html
     ├── algorithm-capitalist.html
     ├── financialization.html
-    └── 35-crisis-reserve-army.html
+    ├── 35-crisis-reserve-army.html
+    ├── digital-piece-wage.html
+    └── data-enclosure.html
 ```
 
 ## ✍️ 写作约定
