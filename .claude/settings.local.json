@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(curl -sI -m 8 https://github.com -o /dev/null -w \"github: %{http_code}\\\\n\")",
+      "Bash(curl -sI -m 8 https://www.baidu.com -o /dev/null -w \"baidu: %{http_code}\\\\n\")",
+      "Bash(git -C \"E:/学习/idea-code-lib/reread-zibenlun\" status)",
+      "Bash(git -C \"E:/学习/idea-code-lib/reread-zibenlun\" log origin/master..HEAD --oneline)",
+      "Bash(git *)",
+      "Bash(curl -s -o /dev/null -w \"http-proxy: %{http_code} \\(%{time_total}s\\)\\\\n\" -x http://127.0.0.1:10808 --connect-timeout 10 https://github.com)",
+      "Bash(curl -s -o /dev/null -w \"socks5: %{http_code} \\(%{time_total}s\\)\\\\n\" -x socks5h://127.0.0.1:10808 --connect-timeout 10 https://github.com)"
     ]
   }
 }
