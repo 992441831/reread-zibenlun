@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劳动力再生产与教育内卷 · 重读马克思 12</title>
+    <style>
+        :root {
+            --paper: #fdfdfb;
+            --ink: #212121;
+            --gray: #6b6b6b;
+            --line: #d8d8d3;
+            --accent: #1a3a6b;
+            --accent-soft: #e8eef7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Georgia, 'Times New Roman', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+            background: #ecebe6;
+            color: var(--ink);
+            line-height: 1.95;
+        }
+
+        .journal {
+            max-width: 860px;
+            margin: 48px auto 90px;
+            background: var(--paper);
+            box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+            border: 1px solid var(--line);
+        }
+
+        /* ===== 期刊页眉 ===== */
+        .journal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 20px 56px;
+            border-bottom: 1px solid var(--line);
+            font-size: 0.75em;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        .journal-top .vol { font-weight: 700; color: var(--ink); }
+
+        .inner { padding: 48px 56px 64px; }
+
+        /* ===== 论文头 ===== */
+        .paper-type {
+            font-size: 0.72em;
+            letter-spacing: 4px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        h1 {
+            font-size: 2.0em;
+            line-height: 1.45;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .paper-sub {
+            font-size: 1.05em;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 26px;
+        }
+        .authors {
+            font-size: 0.88em;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 10px 0;
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+        .authors b { color: var(--ink); font-weight: 600; }
+
+        /* ===== 摘要 ===== */
+        .abstract {
+            background: var(--accent-soft);
+            padding: 26px 30px;
+            margin: 0 0 40px;
+            font-size: 0.93em;
+        }
+        .abstract .ab-label {
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+        .keywords {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(26,58,107,0.3);
+            font-size: 0.92em;
+            color: var(--gray);
+        }
+        .keywords b { color: var(--accent); }
+
+        /* ===== 正文标题 ===== */
+        h2 {
+            font-size: 1.28em;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 52px 0 22px;
+            padding-bottom: 8px;
+            border-bottom: 1.5px solid var(--accent);
+        }
+        h3 {
+            font-size: 1.06em;
+            font-weight: 700;
+            margin: 32px 0 14px;
+        }
+
+        p { margin: 13px 0; text-align: justify; text-indent: 2em; }
+        .abstract p, .note p, .quote-card p, li, td { text-indent: 0; }
+        strong { color: #000; }
+
+        ul, ol { padding-left: 26px; margin: 13px 0; }
+        li { margin: 8px 0; text-align: justify; }
+        ol li::marker { font-weight: 700; color: var(--accent); }
+
+        /* ===== 批注框（仿论文边注/评论框） ===== */
+        .note {
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--accent);
+            padding: 20px 26px;
+            margin: 30px 0;
+            font-size: 0.93em;
+            background: #fafaf7;
+        }
+        .note .n-tag {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .note p + p { margin-top: 10px; }
+
+        /* ===== 引文（仿学术引用块） ===== */
+        .quote-card {
+            margin: 30px 24px;
+            padding-left: 22px;
+            border-left: 2px solid var(--accent);
+            font-size: 0.98em;
+            color: #333;
+        }
+        .quote-card cite {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85em;
+            color: var(--gray);
+            font-style: normal;
+            text-align: right;
+        }
+
+        /* ===== 公式 ===== */
+        .formula {
+            text-align: center;
+            font-size: 1.1em;
+            margin: 26px 0;
+            padding: 16px;
+            letter-spacing: 1px;
+        }
+        .formula .eq { font-style: italic; }
+        .formula .fn { display: block; font-size: 0.68em; color: var(--gray); margin-top: 8px; }
+
+        /* ===== 表格 ===== */
+        .table-wrap { overflow-x: auto; margin: 30px 0; }
+        .table-cap {
+            font-size: 0.82em;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+        .table-cap b { color: var(--ink); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            border-top: 2px solid var(--ink);
+            border-bottom: 2px solid var(--ink);
+        }
+        thead th {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--ink);
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        tbody tr:last-child td { border-bottom: none; }
+        tbody td:first-child { font-weight: 700; white-space: nowrap; color: var(--accent); }
+
+        /* ===== 页脚 ===== */
+        .colophon {
+            margin-top: 60px;
+            border-top: 1px solid var(--line);
+            padding: 18px 56px;
+            font-size: 0.75em;
+            color: var(--gray);
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .journal { margin: 0; border: none; }
+            .inner { padding: 32px 22px 48px; }
+            .journal-top, .colophon { padding-left: 22px; padding-right: 22px; flex-direction: column; gap: 4px; }
+            h1 { font-size: 1.5em; }
+            p { text-indent: 0; }
+            .quote-card { margin: 24px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="journal">
+        <div class="journal-top">
+            <span class="vol">《重读马克思研究》 第12期</span>
+            <span>ZIBENLUN REVIEW · Vol.12, No.7 (2026)</span>
+        </div>
+
+        <div class="inner">
+
+            <div class="paper-type">专题论文 · SPECIAL ARTICLE</div>
+            <h1>劳动力再生产与教育内卷：学历贬值的政治经济学分析</h1>
+            <p class="paper-sub">—— 从"知识改变命运"到学历贬值：劳动力价值中的教育项</p>
+            <div class="authors">
+                <b>重读马克思课题组</b> &nbsp;|&nbsp; 理论基础：《资本论》第一卷第1章（简单劳动与复杂劳动）、第4章（劳动力的买和卖）&nbsp;|&nbsp; 收稿日期：2026-07-20
+            </div>
+
+            <div class="abstract">
+                <p><span class="ab-label">摘要：</span>474万人考研、"本升专"回炉职校、海归月薪五千、"孔乙己脱不下的长衫"——教育内卷被解释为家长焦虑或学历通胀，但马克思在《资本论》第4章早已给出分析框架：<strong>教育费是劳动力价值的组成部分；学历是"复杂劳动"的凭证，承诺着倍加于简单劳动的工资</strong>。教育内卷的真相是：进入岗位的"社会必要教育时间"被竞争无限推高（投入成为纯粹的排位赛），而工资由供过于求的劳动力市场决定，与投入彻底脱钩——<strong>学历贬值不是文凭太多，而是资本对复杂劳动的需求在萎缩</strong>。教育军备竞赛是一场全体家庭为劳动力商品追加成本、却无法提高其售价的集体竞赛。</p>
+                <p class="keywords"><b>关键词：</b>劳动力价值；复杂劳动；教育内卷；学历贬值；人力资本批判；劳动力再生产</p>
+            </div>
+
+            <h2>一、引言：一场无人退出的军备竞赛</h2>
+
+            <p>2026年的教育景观：考研报名人数在连创新高后高位徘徊，研究生招生规模持续扩大，硕士学历成为越来越多岗位的事实门槛；与此同时，硕士起薪与本科的差距不断收窄，"人才高消费"现象普遍——银行柜员、街道办、卷烟厂流水线引来名校硕士扎堆；"本升专"不再是新闻，本科毕业生回炉职业院校学习手艺；留学回报率持续走低，"海归"光环褪色；"烂尾娃"成为热词——投入百万培养的孩子，毕业后月入五千。</p>
+
+            <div class="note">
+                <span class="n-tag">问题的提出</span>
+                <p>主流解释有三种：文化论（中国人重视教育、科举传统）、心理论（剧场效应、家长焦虑）、政策论（扩招稀释了文凭）。三者都是现象描述。马克思在第4章提出的问题更根本：<strong>劳动力是商品，教育是生产这件商品的成本</strong>——那么，当全体家庭都在为这件商品追加成本时，商品的售价为什么反而不涨反跌？本篇要论证：教育内卷是劳动力商品价值生产的内卷，学历贬值是劳动力市场供求与资本技术构成变化共同作用的结果——它不是教育出了问题，而是"教育—就业—工资"这条劳动力价值实现链条在当代的系统性断裂。</p>
+            </div>
+
+            <h2>二、理论基石：第4章与第1章讲了什么</h2>
+
+            <h3>2.1 劳动力是商品，它的价值由再生产它的费用决定</h3>
+
+            <p>资本主义生产方式的基石，是劳动力成为商品。像一切商品一样，劳动力的价值由生产它所必要的劳动时间决定：</p>
+
+            <div class="quote-card">
+                "劳动力的价值，是由生产、发展、维持和延续劳动力所必需的生活资料的价值来决定的。"
+                <cite>—— 马克思《资本论》第一卷第4章</cite>
+            </div>
+
+            <p>这个价值包含三部分：劳动者本人的生活资料、劳动者家庭（工人阶级的繁殖）的生活资料，以及——对本篇最关键的——<strong>教育或训练费用</strong>。</p>
+
+            <div class="quote-card">
+                "要改变一般的人的本性，使它获得一定劳动部门的技能和技巧，成为发达的和专门的劳动力，就要有一定的教育或训练，而这就得花费或多或少的商品等价物。劳动力的教育费随着劳动力性质的复杂程度而不同。因此，这种教育费……包括在生产劳动力所耗费的价值总和中。"
+                <cite>—— 马克思《资本论》第一卷第4章</cite>
+            </div>
+
+            <h3>2.2 复杂劳动：教育的溢价承诺</h3>
+
+            <p>为什么值得为教育付费？第1章给出了理论依据：复杂劳动是"<strong>自乘的或不如说多倍的简单劳动</strong>"，少量的复杂劳动等于多量的简单劳动。受过教育的劳动者，其劳动力价值更高（因为包含了教育费），其在同一时间内创造的价值也更大——这是"知识改变命运"的政治经济学原文：<strong>教育投入 → 复杂劳动力 → 更高的劳动力价值 → 更高的工资</strong>。教育的溢价承诺，写在整个体系的源代码里。</p>
+
+            <div class="formula">
+                <span class="eq">教育费（成本）→ 复杂劳动力 → 倍加的价值 → 更高的工资（预期）</span>
+                <span class="fn">式（1）：教育溢价承诺的经典链条</span>
+            </div>
+
+            <h3>2.3 "历史的和道德的要素"：工资预期从哪来</h3>
+
+            <p>第4章还有一个常被忽略的论断：</p>
+
+            <div class="quote-card">
+                "和其他商品不同，劳动力的价值规定包含着一个历史的和道德的要素。"
+                <cite>—— 马克思《资本论》第一卷第4章</cite>
+            </div>
+
+            <p>劳动力价值的水平，取决于一个社会历史上形成的生活水准与预期。一个被承诺"读书改变命运"的世代，其"必要生活资料"清单里写着与学历匹配的职业、住房与体面——<strong>这份预期本身是劳动力价值的一部分</strong>。当现实的工资水平击碎预期，产生的不是简单的失望，而是劳动力价值层面的危机（见4.4节：长衫现象）。</p>
+
+            <h3>2.4 劳动力价值下降的两个现代机制</h3>
+
+            <div class="note">
+                <span class="n-tag">常见误读 · "人力资本"话语批判</span>
+                <p>主流经济学把教育称为"人力资本投资"，暗示劳动者通过教育拥有了资本。马克思的框架一针见血：<strong>劳动者拥有的只是劳动力这件商品，不是资本</strong>——他得不到资本的利润，只得到劳动力的价值；而且恰恰因为教育费计入劳动力价值，资本压低工资时，连这笔费用都可以不付。"人力资本"概念把劳动者打扮成资本家，是对其真实地位——被支配的雇佣劳动者——最精致的粉饰（呼应第10篇：拜物教的一种学术形态）。</p>
+            </div>
+
+            <p>在马克思的框架内，有两股力量持续压低"复杂劳动力"的溢价：其一，生产生活资料的部门生产率提高，使劳动力价值整体趋于下降（相对剩余价值机制，呼应第9、11篇）；其二，也是当代决定性的——<strong>技能从劳动者身上转移到机器与软件中</strong>（第13章：在机器体系中，知识作为异己的力量与工人相对立），原本的复杂劳动被"去技能化"，还原为简单劳动，附着其上的教育溢价随之蒸发（见4.2节）。</p>
+
+            <h2>三、一张表：19世纪劳动力再生产 × 21世纪教育军备竞赛</h2>
+
+            <div class="table-wrap">
+                <p class="table-cap"><b>表1</b> 两个世纪的劳动力再生产对照</p>
+                <table>
+                    <thead>
+                        <tr><th>维度</th><th>19世纪的劳动力再生产</th><th>21世纪的教育内卷</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>生产场所</td><td>工人家庭+学徒制</td><td>家庭+K12+高校+考研+留学+职校回炉，链条长达20年以上</td></tr>
+                        <tr><td>教育费承担者</td><td>师傅与教会学校为主，成本极低</td><td>家庭——教育支出成为家庭最大开支项之一</td></tr>
+                        <tr><td>复杂劳动凭证</td><td>学徒期满的手艺</td><td>学历、学位、证书、实习履历的层层加码</td></tr>
+                        <tr><td>劳动力过剩形态</td><td>工厂门口的失业工人（呼应第6篇）</td><td>千万级毕业生、"慢就业"、"全职儿女"</td></tr>
+                        <tr><td>溢价实现方式</td><td>熟练工工资数倍于非熟练工</td><td>硕士与本科起薪差距收窄至可忽略</td></tr>
+                        <tr><td>再生产的危机</td><td>童工透支下一代劳动力</td><td>教育军备竞赛的成本威胁生育本身——劳动力代际再生产萎缩</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>四、解剖教育内卷：劳动力商品的生产危机</h2>
+
+            <div class="note">
+                <span class="n-tag">系列递进关系</span>
+                <p>第6篇讲了劳动力的<strong>过剩</strong>（产业后备军），第9篇讲了技能被<strong>机器</strong>吸走，第11篇讲了资本的<strong>利润率</strong>压力——本篇把它们汇聚到劳动力商品的生产端：当家庭按照"复杂劳动溢价"的旧公式为劳动力追加教育成本时，第6篇的过剩压低了售价、第9篇的去技能化抽空了溢价的物质基础、第11篇的利润率压力使资本连合格的复杂劳动都不再需要。<strong>教育内卷，是三个规律在劳动力再生产领域的合力。</strong></p>
+            </div>
+
+            <h3>4.1 机制一："社会必要教育时间"的军备竞赛</h3>
+
+            <p>马克思用"社会必要劳动时间"决定商品价值；教育内卷是它的镜像：进入某个岗位层级所需的<strong>社会必要教育时间</strong>，被竞争无限推高。当硕士成为门槛，本科文凭便只够"入围"；当人人有实习，实习便不再加分。关键在于：<strong>这种竞争不增加任何社会总价值</strong>——全体考生的努力只是重排了座次（排位竞争），而每个家庭为此付出的成本是真实的、不可收回的。就像第11篇的内卷一样：个体理性（不考更落后）与集体灾难（全体成本膨胀、收益不变）的合一。没有人敢先退出，因为退出者先出局——<strong>军备竞赛的强制性与利润率竞争的强制性是同一种强制</strong>（呼应第11篇）。</p>
+
+            <h3>4.2 机制二：学历贬值——复杂劳动凭证的失效</h3>
+
+            <p>文凭为何贬得如此之快？两股力量合流：</p>
+
+            <ul>
+                <li><strong>供给侧</strong>：第6篇的产业后备军扩展到了白领——每年千万级毕业生使复杂劳动力供过于求，工资被压到价值以下，雇主得以"人才高消费"：用硕士的价格购买本来高中训练即可胜任的劳动。<strong>过剩人口不仅压低工资，还直接抬高入职的教育门槛</strong>——门槛的提高不反映岗位需要，只反映排队者太多</li>
+                <li><strong>需求侧</strong>：第9篇的去技能化机制蔓延到白领——软件、平台与AI把大量曾经的"复杂劳动"（文案、翻译、基础编程、报表分析）标准化、自动化，资本对复杂劳动的需求萎缩。当技能存进机器，学历这张"复杂劳动凭证"便失去了兑换对象</li>
+            </ul>
+
+            <div class="note">
+                <span class="n-tag">一个检验</span>
+                <p><strong>如果学历贬值只是"文凭太多"，那么稀缺的手艺应当重新值钱。</strong>事实正是如此——高级技工的议价能力持续上升，"本升专"回炉潮由此而来。这不是教育的失败，而是<strong>劳动力市场在用价格重新标示什么是真正的复杂劳动</strong>；被市场宣判为"简单劳动"的，恰恰是那些为白领岗位准备的教育投资。</p>
+            </div>
+
+            <h3>4.3 机制三：劳动力再生产的资本化</h3>
+
+            <p>19世纪，劳动力再生产（吃饭、生育、学徒）大体在资本循环之外完成；今天，这个领域本身成了资本的投资场所：从早教到考研的教培产业、留学产业链、付费实习、简历包装、考公培训——<strong>家庭不再只是劳动力的生产者，还是"劳动力制造业"的投资人与消费者</strong>。这是第8篇圈地逻辑的延伸：资本在榨取生产领域的剩余价值之外，进一步榨取劳动力<strong>准备过程</strong>中的家庭积蓄。"双减"政策可以视为对这种资本化的行政反弹——但只要就业市场的竞争结构不变，需求只会改道（一对一私教、地下班），无法取消（呼应第11篇：行政手段只能转移规律）。</p>
+
+            <h3>4.4 机制四：长衫现象——"历史和道德要素"的断裂</h3>
+
+            <p>"孔乙己脱不下的长衫"为何引发整个世代的共鸣？第4章给出了精确的解释：一个世代的家庭按"读书改变命运"的承诺支付了巨额教育费，这份承诺已内化为劳动力价值的"历史和道德要素"——他们对工资与体面的预期，本身就是劳动力价值的组成部分。当现实的工资水平（由供过于求决定，见4.2节）击碎预期，他们面对的不仅是收入落差，而是<strong>价值层面的剥夺感：成本已经支付，商品被拒收</strong>。"脱下长衫"的劝诫，实质是要求劳动者单方面核销这笔沉没成本——这在政治上不可行，在理论上不公正：<strong>问题不在于长衫该不该脱，而在于谁承诺过它值这个价</strong>。</p>
+
+            <h2>五、超越马克思：教育内卷的三个新特征</h2>
+
+            <div class="table-wrap">
+                <p class="table-cap"><b>表2</b> 教育内卷的当代特征</p>
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>新特征</th><th>说明</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>教育通胀的全球套利链</strong></td><td>马克思时代，教育费是地方性成本；今天文凭成为全球套利品——留学产业、海外学历回国变现、跨国文凭认证，形成完整的"文凭金融"链条；当套利空间收窄（海归光环褪色），链条末端的投资者（家庭）承担全部损失</td></tr>
+                        <tr><td>2</td><td><strong>AI对复杂劳动的直接消解</strong></td><td>第9篇的去技能化在白领领域加速：AI率先替代的恰是"受过教育的初级劳动"（基础写作、编程、分析）——学历溢价的重灾区。复杂劳动被批量还原为简单劳动，这是马克思时代没有的速度：不是一代人的技能折旧，而是毕业即折旧（呼应第9篇：精神磨损以月计）</td></tr>
+                        <tr><td>3</td><td><strong>再生产危机：军备竞赛反噬生育本身</strong></td><td>教育成本高到威胁劳动力的代际再生产——年轻人不婚不育的重要考量之一即"养不起、教不起"。马克思说劳动力价值包含"工人阶级的繁殖"费用；当这个费用膨胀到劳动者无力承担，资本主义开始消耗自己的根基：今天被内卷透支的，是二十年后的劳动力供给</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>六、结论</h2>
+
+            <h3>核心发现</h3>
+
+            <ol>
+                <li><strong>教育内卷是劳动力商品生产的内卷</strong>——教育费计入劳动力价值，全体家庭追加教育成本只是重排座次，不增加社会总价值；个体理性与集体灾难合一，与第11篇的资本内卷同构</li>
+                <li><strong>学历贬值的根源不在文凭太多，而在资本对复杂劳动的需求萎缩</strong>——白领产业后备军（呼应第6篇）压低售价，去技能化（呼应第9篇）抽空溢价的物质基础；复杂劳动凭证失效是市场用价格重新标示稀缺技能</li>
+                <li><strong>劳动力再生产已被资本化</strong>——教育产业链榨取的不是剩余劳动，而是家庭为"准备劳动"支付的积蓄；圈地运动延伸到了劳动力的生产车间（呼应第8篇）</li>
+                <li><strong>长衫现象是劳动力价值"历史和道德要素"的危机</strong>——世代性的教育投资承诺被违约，剥夺感有客观的价值论基础，不是心态问题</li>
+            </ol>
+
+            <h3>出路</h3>
+
+            <div class="table-wrap">
+                <p class="table-cap"><b>表3</b> 四个层面的出路</p>
+                <table>
+                    <thead>
+                        <tr><th>层面</th><th>方向</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>制度</td><td>教育去产业化与公共化：教培、留学、实习等环节的公共替代；招聘中的学历歧视规制（能力本位）；职业教育与学术教育的等值化——让"复杂劳动"的认定回到技能而非文凭</td></tr>
+                        <tr><td>分配</td><td>提高劳动报酬占比、缩小脑体工资差：当简单劳动也能获得体面收入，教育军备竞赛的强制性才会松动——内卷的本质是"输不起"，而"输不起"来自分配落差</td></tr>
+                        <tr><td>工时</td><td>缩短工时、保障闲暇（呼应第2篇）：马克思设想的"自由王国"里，教育回归人的全面发展而非劳动力商品的加工——前提是有不被出卖的自由时间</td></tr>
+                        <tr><td>观念</td><td>戳破"人力资本"迷思：教育回报的不确定性不应由家庭独自承担——教育是社会为生产关系再生产支付的成本，理应由社会共同负担，而非作为私人投资风险转嫁给每个家庭</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="note">
+                <span class="n-tag">国际镜鉴</span>
+                <p><strong>德国双元制职业教育</strong>让技工与学者在收入与社会地位上接近等值，学徒期间即有工资——劳动力再生产的成本由企业与国家分担而非家庭独扛；<strong>芬兰</strong>中小学取消排名与择校竞争，教师全是硕士但绝不"卷"学历以外的证书；<strong>北欧</strong>公立高等教育免费且发生活补贴——把教育费从家庭投资还原为社会公共支出。这些制度的共同点：<strong>打断"教育投入—排位竞争—文凭溢价"的私人化链条，让劳动力再生产的成本社会化</strong>。</p>
+            </div>
+
+            <h3>马克思的启示</h3>
+
+            <div class="quote-card">
+                "要改变一般的人的本性，使它获得一定劳动部门的技能和技巧，成为发达的和专门的劳动力，就要有一定的教育或训练，而这就得花费或多或少的商品等价物。"
+                <cite>—— 马克思《资本论》第一卷第4章</cite>
+            </div>
+
+            <div class="note">
+                <span class="n-tag">最后的判断</span>
+                <p>当千万家庭在深夜的书桌前为孩子的排名焦灼时，他们以为自己参与的是一场教育竞争；马克思教我们看清它的真实面目：<strong>这是一场为劳动力商品追加成本的全民生产劳动，而商品的定价权不在生产者手中</strong>。教育内卷的尽头不是"卷赢"，而是看清牌桌——当学历不再承诺溢价，当技能不断被机器吸走，出路不在于把孩子培养成更贵的商品，而在于改变那个把所有人的命运都挂到商品售价上的体系。教育本应回答的问题是"人能成为什么"，而不是"人能卖多少钱"——把前者从后者的牢笼里解放出来，需要的不是更努力的考生，而是不再需要考生的社会。</p>
+            </div>
+
+        </div>
+
+        <div class="colophon">
+            <span>报告生成时间：2026年7月20日 · 基于《资本论》第一卷第1章、第4章分析</span>
+            <span>重读马克思研究 · 第12期</span>
+        </div>
+    </div>
+</body>
+</html>
