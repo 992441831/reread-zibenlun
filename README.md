@@ -19,6 +19,7 @@
 | 07 | [计件工资的数字化复活](reports/07-计件工资的数字化复活.md) | 计件工资从19世纪工厂到外卖/网约车平台的复活与算法化升级 | 《资本论》第一卷·计件工资 |
 | 08 | [数据圈地运动](reports/08-数据圈地运动.md) | 原始积累的当代重演：平台对用户数据与数字公地的圈占 | 《资本论》第一卷·所谓原始积累 |
 | 09 | [AI与"机器不创造价值"](reports/09-AI与机器不创造价值.md) | AI产出物的价值来源：不变资本理论拆解"机器创造价值"拜物教 | 《资本论》第一卷·不变资本和可变资本、机器和大工业 |
+| 10 | [商品拜物教与消费主义](reports/10-商品拜物教与消费主义.md) | 品牌溢价、种草、直播带货：拜物教如何被产业化，直播如何完成"用表演的人的关系推销物的关系" | 《资本论》第一卷·商品的拜物教性质及其秘密 |
 
 ## 🌐 在线阅读（精美排版版）
 
@@ -41,7 +42,8 @@ reread-zibenlun/
 │   ├── 06-35岁危机与产业后备军.md
 │   ├── 07-计件工资的数字化复活.md
 │   ├── 08-数据圈地运动.md
-│   └── 09-AI与机器不创造价值.md
+│   ├── 09-AI与机器不创造价值.md
+│   └── 10-商品拜物教与消费主义.md
 └── docs/              # 精美排版 HTML（用于 GitHub Pages 展示）
     ├── index.html     # 导航首页
     ├── labor-theory-of-value.html
@@ -52,7 +54,8 @@ reread-zibenlun/
     ├── 35-crisis-reserve-army.html
     ├── digital-piece-wage.html
     ├── data-enclosure.html
-    └── ai-does-not-create-value.html
+    ├── ai-does-not-create-value.html
+    └── commodity-fetishism.html
 ```
 
 ## ✍️ 写作约定
