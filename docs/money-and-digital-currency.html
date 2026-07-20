@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>货币与数字货币 · 重读马克思 14</title>
+    <style>
+        :root {
+            --bill: #eef2e0;
+            --bill-deep: #e2e8cc;
+            --ink: #2e4426;
+            --ink-soft: #5c7050;
+            --green: #2e6b34;
+            --green-deep: #1d4a22;
+            --gold: #b8860b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', Georgia, serif;
+            background: #26302a;
+            color: var(--ink);
+            line-height: 2.0;
+        }
+
+        .bill {
+            max-width: 920px;
+            margin: 44px auto 84px;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(46,107,52,0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(184,134,11,0.06) 0%, transparent 40%),
+                var(--bill);
+            border: 2px solid var(--green);
+            box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+            position: relative;
+            padding: 0;
+        }
+
+        /* 扭索纹边框 */
+        .frame {
+            margin: 14px;
+            border: 3px double var(--green);
+            padding: 6px;
+        }
+        .frame-inner {
+            border: 1px solid var(--green);
+            padding: 44px 52px 56px;
+            position: relative;
+            background-image:
+                repeating-radial-gradient(circle at 50% -30%, transparent 0px, transparent 6px, rgba(46,107,52,0.03) 6px, rgba(46,107,52,0.03) 7px);
+        }
+
+        /* 四角编号 */
+        .serial {
+            position: absolute;
+            font-size: 0.72em;
+            color: var(--green);
+            letter-spacing: 2px;
+            font-family: Georgia, serif;
+        }
+        .serial.tl { top: 12px; left: 16px; }
+        .serial.tr { top: 12px; right: 16px; }
+        .serial.bl { bottom: 12px; left: 16px; }
+        .serial.br { bottom: 12px; right: 16px; }
+
+        /* ===== 券头 ===== */
+        .bill-head {
+            text-align: center;
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 24px;
+            margin-bottom: 12px;
+        }
+        .bill-head .bank {
+            font-size: 0.8em;
+            letter-spacing: 10px;
+            color: var(--ink-soft);
+        }
+        .bill-head h1 {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: var(--green-deep);
+            letter-spacing: 5px;
+            margin: 14px 0 10px;
+        }
+        .bill-head .subtitle {
+            color: var(--gold);
+            font-size: 1em;
+            letter-spacing: 3px;
+        }
+        .denomination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8em;
+            color: var(--ink-soft);
+            padding: 10px 4px 20px;
+            border-bottom: 1px dashed var(--green);
+            margin-bottom: 36px;
+            letter-spacing: 1px;
+        }
+        .denomination .no14 {
+            font-size: 1.6em;
+            font-weight: 900;
+            color: var(--green);
+            border: 2px solid var(--green);
+            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ===== 提示框：券面附注 ===== */
+        .note {
+            border: 1.5px solid var(--green);
+            background: var(--bill-deep);
+            padding: 22px 28px;
+            margin: 32px 0;
+            font-size: 0.94em;
+            position: relative;
+        }
+        .note .n-tag {
+            position: absolute;
+            top: -13px;
+            left: 22px;
+            background: var(--green);
+            color: var(--bill);
+            font-size: 0.72em;
+            letter-spacing: 4px;
+            padding: 2px 12px;
+        }
+        .note.gold { border-color: var(--gold); }
+        .note.gold .n-tag { background: var(--gold); }
+        .note p + p { margin-top: 10px; }
+
+        /* ===== 标题 ===== */
+        h2 {
+            font-size: 1.42em;
+            font-weight: 900;
+            color: var(--green-deep);
+            margin: 54px 0 22px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        h2::before, h2::after {
+            content: '';
+            flex: 1;
+            height: 0;
+            border-top: 1px solid var(--green);
+            border-bottom: 1px solid var(--green);
+            padding: 1.5px 0;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--green);
+            margin: 32px 0 14px;
+            letter-spacing: 1px;
+        }
+        h3::before { content: '§ '; color: var(--gold); }
+
+        p { margin: 13px 0; text-align: justify; }
+        strong { color: var(--green-deep); }
+
+        ul, ol { padding-left: 26px; margin: 13px 0; }
+        li { margin: 8px 0; text-align: justify; }
+        ul li::marker { content: '❖ '; color: var(--gold); }
+        ol li::marker { color: var(--green); font-weight: 700; }
+
+        /* ===== 引文：凹印铭文 ===== */
+        blockquote {
+            margin: 28px 0;
+            padding: 24px 30px;
+            border: 2px solid var(--green);
+            outline: 1px solid var(--green);
+            outline-offset: 3px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.0em;
+            color: var(--green-deep);
+            background: var(--bill-deep);
+            letter-spacing: 1px;
+        }
+        blockquote cite {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.8em;
+            font-weight: 400;
+            color: var(--ink-soft);
+            font-style: normal;
+            letter-spacing: 2px;
+        }
+
+        /* ===== 规律铭文条 ===== */
+        .law {
+            text-align: center;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--gold);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 14px 20px;
+            margin: 26px 0;
+            letter-spacing: 2px;
+        }
+        .law .small { display: block; font-size: 0.7em; color: var(--ink-soft); font-weight: 400; margin-top: 6px; letter-spacing: 3px; }
+
+        /* ===== 表格 ===== */
+        .table-wrap { overflow-x: auto; margin: 30px 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            border: 2px solid var(--green);
+        }
+        thead th {
+            background: var(--green);
+            color: var(--bill);
+            text-align: left;
+            padding: 11px 15px;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            font-size: 0.95em;
+        }
+        tbody td {
+            padding: 11px 15px;
+            border: 1px solid rgba(46,107,52,0.35);
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: var(--bill-deep); }
+        tbody td:first-child { font-weight: 700; color: var(--green-deep); white-space: nowrap; }
+
+        /* ===== 券尾 ===== */
+        .bill-foot {
+            margin-top: 56px;
+            border-top: 2px solid var(--green);
+            padding-top: 18px;
+            text-align: center;
+            font-size: 0.78em;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+        }
+        .bill-foot .promise {
+            font-weight: 700;
+            color: var(--green-deep);
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .bill { margin: 0; border-left: none; border-right: none; }
+            .frame { margin: 8px; }
+            .frame-inner { padding: 28px 20px 40px; }
+            .bill-head h1 { font-size: 1.5em; letter-spacing: 2px; }
+            .denomination { flex-wrap: wrap; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bill">
+        <div class="frame">
+            <div class="frame-inner">
+                <span class="serial tl">REREAD-2026-014</span>
+                <span class="serial tr">REREAD-2026-014</span>
+                <span class="serial bl">REREAD-2026-014</span>
+                <span class="serial br">REREAD-2026-014</span>
+
+                <!-- 券头 -->
+                <div class="bill-head">
+                    <div class="bank">重 读 马 克 思 研 究 银 行</div>
+                    <h1>货币与数字货币</h1>
+                    <p class="subtitle">—— 从金镑到余额数字：价值符号的拜物教顶点 ——</p>
+                </div>
+                <div class="denomination">
+                    <span>凭券研读 · 《资本论》第一卷 第2章·交换过程 / 第3章·货币或商品流通</span>
+                    <span class="no14">14</span>
+                    <span>贰零贰陆年柒月贰拾日 发行</span>
+                </div>
+
+                <!-- 核心论点 -->
+                <div class="note">
+                    <span class="n-tag">券 面 要 义</span>
+                    <p>移动支付消灭了现金、稳定币挑战银行、比特币自称"数字黄金"、央行推出数字货币——货币的形态之争被叙述为技术之争。马克思在第3章给出的框架揭示了更深的一层：<strong>货币从来不是物，而是社会关系的结晶——它是商品内在价值尺度（劳动时间）的必然表现形式</strong>。纸币与数字货币是"价值符号"，其流通铁律是：符号的发行量若超出它所代表的价值量，超出的部分就以贬值的方式被强制核销。移动支付消灭的只是货币的物体外壳，却把货币拜物教推到顶点——屏幕上的余额数字似乎自己就是价值；通胀不是"印钞太多"的技术事故，而是国家以价值符号的名义进行的一场隐性阶级再分配。</p>
+                </div>
+
+                <h2>引言：摸不到钱的时代</h2>
+
+                <p>2026年的货币景观：在中国，现金已退居角落，连菜市场的摊贩都挂着收款码；数字人民币试点扩大到全国多地，工资可以直接以CBDC发放；在大洋彼岸，稳定币获得联邦立法认可，发行规模以千亿美元计，比特币被纳入上市公司资产负债表与国家储备讨论；而在阿根廷、土耳其、黎巴嫩，本币的剧烈贬值让"工资到账即换汇"成为普通人的生存技能。钱的形态以前所未有的速度变换，每个人都切身感到：<strong>钱不再是那个东西了——但"那个东西"究竟是什么？</strong></p>
+
+                <div class="note gold">
+                    <span class="n-tag">问 题 的 提 出</span>
+                    <p>主流话语给出三种解释：技术论（区块链将重构货币）、国家论（货币即主权，谁发行谁说了算）、数量论（通胀就是印钞印多了）。三者都把货币当作一个"东西"——一种技术装置、一张国家凭证、一堆数量。马克思在第3章的分析恰恰相反：<strong>货币是一种社会关系</strong>——它是私人劳动被承认为社会劳动的一般凭证。形态之争的背后，是"谁的劳动被承认、由谁来承认、按什么比例承认"之争。本篇要解剖：当货币连纸张的外壳都蜕去，这套社会关系发生了什么变化？</p>
+                </div>
+
+                <h2>理论基石：第3章讲了什么</h2>
+
+                <h3>2.1 货币不是物，是价值形式的完成</h3>
+
+                <p>货币不是被发明的便利工具，而是商品交换内在矛盾的必然产物。第1章的价值形式分析在第3章落地为货币的五种职能，其根基是<strong>价值尺度</strong>：</p>
+
+                <blockquote>
+                    "货币作为价值尺度，是商品内在的价值尺度即劳动时间的必然表现形式。"
+                    <cite>—— 马克思《资本论》第一卷第3章</cite>
+                </blockquote>
+
+                <p>金的特殊地位不来自它的物理属性，而来自交换历史把它推上了"一般等价物"的位置：一切商品都用金来标明自己包含的劳动时间。<strong>货币是劳动时间的社会证书</strong>——理解了这一点，就不会被任何货币的新外壳（纸张、芯片、区块链）迷惑。</p>
+
+                <h3>2.2 流通手段：W—G—W 与危机的可能性</h3>
+
+                <p>作为流通手段，货币把"以物易物"拆成买与卖两个环节（W—G，G—W）。这带来了自由，也埋下了分裂：</p>
+
+                <blockquote>
+                    "流通所以能够打破产品交换的时间、空间和个人的限制，正是因为它把这里存在的换出自己的劳动产品和换进别人的劳动产品这二者之间的直接的同一性，分裂成卖和买这二者之间的对立……这些形式包含着危机的可能性，但仅仅是可能性。"
+                    <cite>—— 马克思《资本论》第一卷第3章</cite>
+                </blockquote>
+
+                <p>卖了可以不买——货币使"卖"与"买"在时间和空间上分离，<strong>危机的可能性就内置于货币的存在本身</strong>（呼应第5、11篇：这个可能性如何发展为现实性，是第三卷的故事）。</p>
+
+                <h3>2.3 货币流通量规律与纸币铁律</h3>
+
+                <p>第3章给出了货币分析的两条硬规律：</p>
+
+                <blockquote>
+                    "流通手段量决定于流通商品的价格总额和货币流通的平均速度。"
+                    <cite>—— 马克思《资本论》第一卷第3章</cite>
+                </blockquote>
+
+                <p>纸币登场后，规律发生了著名的变形：</p>
+
+                <blockquote>
+                    "纸币流通的特殊规律只能从纸币是金的代表这种关系中产生。这一规律简单说来就是：纸币的发行限于它象征地代表的金（或银）的实际流通的数量。"
+                    <cite>—— 马克思《资本论》第一卷第3章</cite>
+                </blockquote>
+
+                <div class="law">
+                    纸 币 铁 律 ：超 发 必 贬 值 —— 超 出 部 分 以 物 价 上 涨 的 方 式 被 强 制 核 销
+                    <span class="small">纸币是价值符号：本身无价值，只代表金量（劳动量）</span>
+                </div>
+
+                <h3>2.4 贮藏、支付与世界货币</h3>
+
+                <p>货币的后三种职能勾勒了它超越流通的深度：<strong>贮藏手段</strong>（货币作为财富的一般代表被退出流通，调节流通量）、<strong>支付手段</strong>（债权债务链条使货币变成"契约上的一般商品"，支付链条的断裂即危机的直接形式）、<strong>世界货币</strong>（货币越出国界，恢复其贵金属的本来面目，充当国际购买手段与财富转移手段）。</p>
+
+                <div class="note">
+                    <span class="n-tag">常 见 误 读</span>
+                    <p><strong>货币数量论与"中性货币"幻觉。</strong>"通胀处处是货币现象"说对了一半——纸币超发确实贬值；但货币从来不是中性的：新注入的货币按特定的<strong>顺序与渠道</strong>进入流通（先到金融市场与资产持有者手中，后到工资袋），物价普遍上涨时工资的调整总是滞后。<strong>通胀表面上是货币现象，实际上是分配现象</strong>——它是一场对现金持有者、固定收入者与工薪层征收的隐形税，一场有利于债务人与资产持有者的再分配。只看M2曲线而看不到这只"再分配之手"，就永远看不懂通胀（见4.2节）。</p>
+                </div>
+
+                <h2>一张表：19世纪金镑时代 × 21世纪数字货币时代</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>维度</th><th>19世纪的货币</th><th>21世纪的数字货币</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>价值尺度载体</td><td>金镑、银元：符号还有贵金属实体</td><td>余额数字、稳定币代币：符号的符号，实体彻底退场</td></tr>
+                            <tr><td>价值符号发行人</td><td>国家银行券 vs 私人银行券（野猫银行）</td><td>央行CBDC vs 私人稳定币——历史重演</td></tr>
+                            <tr><td>流通速度</td><td>受金银运输与点钞限制</td><td>扫码即付、智能合约自动执行——流速逼近极限</td></tr>
+                            <tr><td>贮藏手段</td><td>窖藏金银</td><td>比特币"数字黄金"叙事；余额躺在支付平台吃零息</td></tr>
+                            <tr><td>支付手段断裂</td><td>票据链断裂引发商业危机</td><td>债务货币化、消费信贷链（呼应第5、10篇）</td></tr>
+                            <tr><td>世界货币</td><td>黄金、英镑汇票</td><td>美元稳定币渗透全球；SWIFT制裁与去美元化</td></tr>
+                            <tr><td>拜物教形态</td><td>见金如见财富</td><td>见余额数字如见财富——拜物教连最后的外壳都不需要（呼应第10篇）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>解剖数字货币：符号的游戏与主权的较量</h2>
+
+                <div class="note">
+                    <span class="n-tag">系 列 递 进</span>
+                    <p>第5篇讲了货币之上的虚拟资本（对未来剩余价值的索取权），第10篇讲了货币拜物教如何遮蔽社会关系——本篇退回第3章，追问货币本身：当价值符号连纸张都不需要，当发行权在国家与私人算法之间拉锯，货币作为"劳动时间的社会证书"正在经历怎样的重新登记？</p>
+                </div>
+
+                <h3>4.1 移动支付：拜物教的顶点与支付的租金化</h3>
+
+                <p>移动支付消灭了货币的物体外壳，产生三个第3章式的后果：</p>
+
+                <ul>
+                    <li><strong>拜物教达到顶点</strong>：纸币至少还印着国徽提醒你这枚符号的来历；余额数字连这个提醒都没有——钱似乎就是数字本身，社会关系（国家信用、银行体系、亿万劳动者的交换网络）彻底隐形（呼应第10篇）</li>
+                    <li><strong>流通被平台中介并收费</strong>：每一次扫码都经过支付平台的管道，管道要收租（呼应第3篇：支付通道成为数字基础设施的地租来源）；零息沉淀的余额还构成一笔免费的资金池</li>
+                    <li><strong>数字鸿沟即货币准入鸿沟</strong>：不会扫码的老人与无银行账户者，被排除在流通手段之外——<strong>当货币完全数字化，货币的使用权本身变成了需要资质的特权</strong>，这是金镑时代不存在的问题</li>
+                </ul>
+
+                <h3>4.2 通胀的政治经济学：一场隐形的阶级再分配</h3>
+
+                <p>2021—2024年的全球通胀潮提供了教科书样本。主流叙事在"印钞太多"与"供应链冲击"之间打转，第3章与2.4节的框架给出更完整的解剖：纸币铁律决定了超发必贬值（疫情期主要央行的扩表规模史无前例），但<strong>贬值的落点从来不是均匀的</strong>：资产价格先于消费品上涨（新钱先到资产持有者手中），物价上涨先于工资调整（工薪层承受时滞损失），固定利率债务人（房贷者、政府）的债务被通胀稀释。<strong>通胀是一次不记名的再分配投票</strong>：现金持有者与工薪层付税，资产持有者与债务人受益。各国随后暴力加息压制通胀，代价（失业、房贷压力）同样按阶级分配落地（呼应第6篇）。</p>
+
+                <h3>4.3 加密货币：私人价值符号的纸币铁律审判</h3>
+
+                <p>用第3章审视加密货币，一切都清晰了：</p>
+
+                <ul>
+                    <li><strong>比特币＝贮藏手段的复古</strong>：它不执行价值尺度与流通手段职能（价格波动太大，没有商品用它标价），只执行贮藏职能——"数字黄金"的叙事是准确的，但它贮藏的不是价值实体，而是<strong>稀缺性信仰</strong>：2100万枚上限是写进代码的"金量"，价值全靠后来者接续认购。它是价值符号，符号的背后不是金，而是共识——<strong>纸币铁律以最极端的形式显灵：没有实体锚的符号，价格就是信仰的温度计</strong>（呼应第5篇：虚拟资本）</li>
+                    <li><strong>稳定币＝私人银行券的复活</strong>：19世纪美国"野猫银行"发行私人钞票、以远少于此的准备金兑付，与今天的稳定币结构同构；2022年算法稳定币UST崩盘（400亿美元蒸发），正是无准备金符号遭遇挤兑时的铁律演示——<strong>符号可以没有锚，前提是永远没有人要求兑现</strong></li>
+                    <li><strong>投机的社会化</strong>：加密市场把货币的贮藏职能与赌场结合，散户的"信仰充值"构成早期持有者退出的流动性——这是第10篇拜物教的金融版：代币的价格被当成项目"价值"的证明，正如偶像的神迹被当成神存在的证明</li>
+                </ul>
+
+                <h3>4.4 数字人民币与货币主权：世界货币的地缘政治</h3>
+
+                <p>CBDC是央行的反击：当支付被私人平台中介（4.1节）、当稳定币开始跨境渗透，国家以数字法定货币<strong>回收支付手段的发行与清算权</strong>。而在世界货币层面，第3章的图景正在剧烈重组：美元稳定币把美元的流通管道铺进没有银行账户的地区（美元霸权的数字化延伸）；对俄储备冻结证明<strong>世界货币已经武器化</strong>——货币作为"国际财富转移手段"的职能，可以被一国单方面关闭。去美元化、本币结算、多边央行数字货币桥，都是对"谁来充当世界货币"这一19世纪由炮舰回答的问题的21世纪作答。</p>
+
+                <h2>超越马克思：数字货币的三个新特征</h2>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>#</th><th>新特征</th><th>说明</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td><strong>货币的彻底无形化与可编程化</strong></td><td>马克思的纸币还有纸；今天的价值符号纯为数字，且可编程——智能合约使支付附带条件、定向与期限，货币的流通速度与可控性逼近理论极限：纸币铁律的"发行量"首次可以被实时精确管理，也可以被实时精确操纵</td></tr>
+                            <tr><td>2</td><td><strong>私人货币的算法化复活及其铁律审判</strong></td><td>从私人银行券到稳定币，历史绕了一圈回到第3章的起点；但这一次，连"野猫银行"都不需要——一段代码即可发钞。UST崩盘证明：无论算法多精巧，无锚符号的尽头仍是挤兑——150年前的纸币规律一次都没有失灵</td></tr>
+                            <tr><td>3</td><td><strong>货币主权的碎片化与武器化</strong></td><td>马克思笔下，世界货币在国家之上恢复金银的本来面目；今天世界货币成为大国权力的直接工具——储备可冻结、管道可切断、私人代币可绕开主权。货币战场从金库转移到清算网络与代码仓库</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>结论</h2>
+
+                <h3>核心发现</h3>
+
+                <ol>
+                    <li><strong>货币是劳动时间的社会证书，不是技术装置</strong>——形态之争（纸币、CBDC、稳定币、比特币）的背后是"谁的劳动被承认、由谁承认、按什么比例承认"的社会关系之争；技术改变的是证书的材质，不是证书的性质</li>
+                    <li><strong>移动支付把货币拜物教推到顶点</strong>——物体外壳消失后，余额数字似乎自己就是价值；同时流通被平台中介并收租，货币的使用权本身变成需要资质的特权（呼应第3、10篇）</li>
+                    <li><strong>通胀是隐形的阶级再分配</strong>——纸币铁律决定超发必贬值，而新钱的进入顺序与工资调整时滞，使贬值的代价系统性地落在工薪层与现金持有者身上</li>
+                    <li><strong>私人数字货币逃不出纸币铁律</strong>——比特币是稀缺性信仰的贮藏符号，稳定币是私人银行券的算法复活；UST崩盘是无锚符号的必然结局，正如野猫银行券的尽头是挤兑（呼应第5篇）</li>
+                </ol>
+
+                <h3>出路</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>层面</th><th>方向</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>制度</td><td>支付作为公共基础设施：公共支付系统的普惠义务（现金的法定地位保障、无银行账户者的准入）；稳定币的全额准备金与公共审计——私人发钞必须接受纸币铁律的公开检验</td></tr>
+                            <tr><td>分配</td><td>通胀的分配补偿机制：工资与物价指数的自动联动、基本生活品价格保障——承认通胀的阶级性，用制度对冲其逆向再分配（呼应第11篇）</td></tr>
+                            <tr><td>主权</td><td>货币主权的公共性重建：CBDC设计中的隐私保护与防滥用条款；国际清算的公共管道建设，降低世界货币被单一权力武器化的风险</td></tr>
+                            <tr><td>观念</td><td>破除"去中心化即民主"的技术拜物教：货币民主化的关键不在发行技术，而在谁控制信贷创造、谁承担符号贬值的代价——这是政治问题，区块链回答不了</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="note gold">
+                    <span class="n-tag">他 山 之 石</span>
+                    <p><strong>国际镜鉴：</strong>萨尔瓦多2021年将比特币列为法币，三年后黯然缩减实验——民众拒用的原因很简单：没有商品愿以剧烈波动的符号标价，货币的第一职能（价值尺度）它承担不了；欧盟《加密资产市场法规》（MiCA）强制稳定币全额储备与赎回权——把纸币铁律写进法典；多国保留现金法定义务的立法（瑞典在"无现金社会"走到最远后掉头保障现金），承认<strong>货币准入权是公民权</strong>。</p>
+                </div>
+
+                <h3>马克思的启示</h3>
+
+                <blockquote>
+                    "纸币的发行限于它象征地代表的金（或银）的实际流通的数量。"
+                    <cite>—— 马克思《资本论》第一卷第3章</cite>
+                </blockquote>
+
+                <div class="note">
+                    <span class="n-tag">券 背 题 辞</span>
+                    <p><strong>最后的判断：</strong>当一个阿根廷工人在发薪日狂奔去换汇，当一个中国老人在只收扫码的摊位前攥着现金无措，当一个散户盯着比特币K线祈祷——他们面对的是同一个东西：<strong>一张劳动时间的社会证书，正在被不同的权力重新登记</strong>。马克思第3章教我们的，不是预测哪种数字货币会赢，而是看穿一切货币的华丽外壳之后那个不变的问题：这张证书凭什么被承认、由谁发行、贬值时谁买单。<strong>货币的历史是技术的外壳不断蜕去的历史，也是社会关系不断深化的历史——把货币的发行与管理从私人权力收归公共，和把生产资料社会化一样，是同一个问题的两个侧面。</strong></p>
+                </div>
+
+                <div class="bill-foot">
+                    <p class="promise">本 券 理 论 价 值 由 全 体 劳 动 者 的 劳 动 时 间 担 保</p>
+                    <p>报告生成时间：2026年7月20日 · 基于《资本论》第一卷第2章（交换过程）、第3章（货币或商品流通）分析</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

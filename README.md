@@ -23,6 +23,7 @@
 | 11 | [利润率趋向下降与行业内卷](reports/11-利润率趋向下降与行业内卷.md) | 价格战、补贴大战、"反内卷"：内卷作为利润率趋向下降规律的当代症状 | 《资本论》第三卷·利润率趋向下降的规律（第13—15章） |
 | 12 | [劳动力再生产与教育内卷](reports/12-劳动力再生产与教育内卷.md) | 学历贬值、"本升专"、孔乙己的长衫：教育费作为劳动力价值的组成部分，复杂劳动凭证为何失效 | 《资本论》第一卷·劳动力的买和卖、简单劳动与复杂劳动 |
 | 13 | [协作与分工：远程办公与众包](reports/13-协作与分工-远程办公与众包.md) | 协作的"集体力"不费资本分文却归资本占有；云端工场手工业如何拆散工人的集结 | 《资本论》第一卷·协作、分工和工场手工业（第11、12章） |
+| 14 | [货币与数字货币](reports/14-货币与数字货币.md) | 移动支付、稳定币、CBDC、通胀：货币作为"劳动时间的社会证书"，纸币铁律如何审判一切无锚符号 | 《资本论》第一卷·货币或商品流通（第3章） |
 
 ## 🌐 在线阅读（精美排版版）
 
@@ -49,7 +50,8 @@ reread-zibenlun/
 │   ├── 10-商品拜物教与消费主义.md
 │   ├── 11-利润率趋向下降与行业内卷.md
 │   ├── 12-劳动力再生产与教育内卷.md
-│   └── 13-协作与分工-远程办公与众包.md
+│   ├── 13-协作与分工-远程办公与众包.md
+│   └── 14-货币与数字货币.md
 └── docs/              # 精美排版 HTML（用于 GitHub Pages 展示）
     ├── index.html     # 导航首页
     ├── labor-theory-of-value.html
@@ -64,7 +66,8 @@ reread-zibenlun/
     ├── commodity-fetishism.html
     ├── profit-rate-fall-involution.html
     ├── education-involution.html
-    └── cooperation-division-of-labor.html
+    ├── cooperation-division-of-labor.html
+    └── money-and-digital-currency.html
 ```
 
 ## ✍️ 写作约定
