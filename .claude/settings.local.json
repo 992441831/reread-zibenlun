@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "allow": [
+    "
+
+    ": [
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git commit *)",
@@ -39,7 +41,18 @@
       "Bash(py -3.11 -c \"from pypdf import PdfReader; r=PdfReader\\('test.pdf'\\); print\\('页数:', len\\(r.pages\\)\\); print\\('文本预览:', r.pages[0].extract_text\\(\\)[:80]\\)\")",
       "Bash(cmd //c \"python --version\")",
       "Bash(cmd //c \"start ms-settings:advanced-apps\" 2>&1)",
-      "Bash(powershell -NoProfile -Command \"[Environment]::GetEnvironmentVariable\\('Path','User'\\)\")"
+      "Bash(powershell -NoProfile -Command \"[Environment]::GetEnvironmentVariable\\('Path','User'\\)\")",
+      "mcp__memory__read_graph",
+      "mcp__memory__create_entities",
+      "mcp__memory__create_relations",
+      "mcp__filesystem__directory_tree",
+      "mcp__filesystem__read_text_file",
+      "Bash(netstat -ano)",
+      "Bash(curl -v --max-time 5 http://localhost:37777/)",
+      "Read(//c/Users/pc/.claude/plugins/**)",
+      "Read(//c/Users/pc/.claude/**)",
+      "Bash(node *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" --max-time 5 http://localhost:37777/)"
     ]
   }
 }
