@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利润率趋向下降与行业内卷 · 重读马克思 11</title>
+    <style>
+        :root {
+            --paper: #f3edda;
+            --paper-dark: #e9e1c8;
+            --ink: #1c1a15;
+            --ink-soft: #4a453a;
+            --red: #8b1a1a;
+            --red-deep: #6b1010;
+            --rule: #1c1a15;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', serif;
+            background: #d8d0b8;
+            color: var(--ink);
+            line-height: 2.0;
+            /* 纸张纤维噪点 */
+            background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 5px 5px;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 40px auto 80px;
+            padding: 0 24px;
+        }
+
+        .sheet {
+            background: var(--paper);
+            border: 2px solid var(--rule);
+            box-shadow: 6px 6px 0 rgba(28, 26, 21, 0.85);
+            padding: 56px 64px 72px;
+            position: relative;
+        }
+
+        /* ===== 报头 ===== */
+        .masthead {
+            text-align: center;
+            border-bottom: 4px double var(--rule);
+            padding-bottom: 22px;
+            margin-bottom: 8px;
+        }
+        .masthead .series {
+            font-size: 0.82em;
+            letter-spacing: 8px;
+            color: var(--ink-soft);
+        }
+        .masthead h1 {
+            font-size: 2.4em;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin: 14px 0 10px;
+            color: var(--red);
+        }
+        .masthead .subtitle {
+            font-size: 1.02em;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+        }
+        .dateline {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: var(--ink-soft);
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--rule);
+            padding: 8px 2px 10px;
+            margin-bottom: 36px;
+        }
+        .dateline .no {
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        /* ===== 核心论点：印章框 ===== */
+        .thesis {
+            border: 3px solid var(--red);
+            outline: 1px solid var(--red);
+            outline-offset: 4px;
+            padding: 26px 30px;
+            margin: 40px 0;
+            background: var(--paper-dark);
+            position: relative;
+        }
+        .thesis::before {
+            content: '本期社论';
+            position: absolute;
+            top: -14px;
+            left: 24px;
+            background: var(--red);
+            color: var(--paper);
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            padding: 2px 14px;
+        }
+        .thesis p { font-size: 0.98em; }
+
+        /* ===== 提示框：边注条 ===== */
+        .aside {
+            border-left: 6px solid var(--red);
+            background: var(--paper-dark);
+            padding: 20px 26px;
+            margin: 32px 0;
+        }
+        .aside .tag {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--red);
+            border: 1.5px solid var(--red);
+            padding: 1px 10px;
+            margin-bottom: 10px;
+        }
+        .aside.black { border-left-color: var(--ink); }
+        .aside.black .tag { color: var(--ink); border-color: var(--ink); }
+        .aside p + p { margin-top: 10px; }
+
+        /* ===== 标题 ===== */
+        h2 {
+            font-size: 1.5em;
+            font-weight: 900;
+            margin: 60px 0 26px;
+            padding: 10px 0;
+            border-top: 3px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            letter-spacing: 2px;
+        }
+        h2 .h2no {
+            color: var(--red);
+            margin-right: 12px;
+        }
+
+        h3 {
+            font-size: 1.14em;
+            font-weight: 700;
+            margin: 38px 0 16px;
+            color: var(--red-deep);
+            letter-spacing: 1px;
+        }
+        h3::before { content: '◆ '; font-size: 0.8em; vertical-align: 2px; }
+
+        p { margin: 14px 0; text-align: justify; }
+        strong { color: var(--red-deep); }
+
+        ul, ol { padding-left: 26px; margin: 14px 0; }
+        li { margin: 9px 0; text-align: justify; }
+        ul li::marker { content: '▪ '; color: var(--red); }
+        ol li::marker { color: var(--red); font-weight: 700; }
+
+        /* ===== 引文：老报纸栏 ===== */
+        blockquote {
+            margin: 28px 0;
+            padding: 26px 32px;
+            border-top: 1px solid var(--rule);
+            border-bottom: 1px solid var(--rule);
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 31px,
+                rgba(28,26,21,0.07) 31px,
+                rgba(28,26,21,0.07) 32px
+            );
+            font-size: 1.02em;
+            font-weight: 600;
+            position: relative;
+        }
+        blockquote::before {
+            content: '原 文 引 述';
+            display: block;
+            text-align: center;
+            font-size: 0.68em;
+            letter-spacing: 10px;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+        blockquote cite {
+            display: block;
+            margin-top: 16px;
+            text-align: right;
+            font-size: 0.82em;
+            font-weight: 400;
+            color: var(--ink-soft);
+            font-style: normal;
+        }
+
+        /* ===== 公式 ===== */
+        .formula {
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.15em;
+            margin: 28px 0;
+            padding: 20px;
+            border: 1.5px solid var(--ink);
+            background: var(--paper-dark);
+            letter-spacing: 1px;
+        }
+        .formula .cap { color: var(--red); font-weight: 700; }
+        .formula .note { display: block; font-size: 0.72em; color: var(--ink-soft); margin-top: 10px; letter-spacing: 2px; }
+
+        /* ===== 表格 ===== */
+        .table-wrap { overflow-x: auto; margin: 32px 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92em;
+            border: 2px solid var(--rule);
+        }
+        thead th {
+            background: var(--ink);
+            color: var(--paper);
+            text-align: left;
+            padding: 12px 16px;
+            letter-spacing: 2px;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 12px 16px;
+            border: 1px solid rgba(28,26,21,0.4);
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: var(--paper-dark); }
+        tbody td:first-child {
+            font-weight: 700;
+            color: var(--red-deep);
+            white-space: nowrap;
+        }
+
+        /* ===== 页脚 ===== */
+        .colophon {
+            margin-top: 64px;
+            border-top: 4px double var(--rule);
+            padding-top: 18px;
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+        }
+        .colophon .seal {
+            display: inline-block;
+            border: 2px solid var(--red);
+            color: var(--red);
+            font-weight: 900;
+            padding: 6px 10px;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            transform: rotate(-3deg);
+        }
+
+        @media (max-width: 768px) {
+            .sheet { padding: 32px 22px 48px; }
+            .masthead h1 { font-size: 1.6em; letter-spacing: 2px; }
+            .dateline { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sheet">
+
+            <!-- 报头 -->
+            <div class="masthead">
+                <div class="series">重 读 马 克 思 · 系 列 研 究 通 报</div>
+                <h1>利润率趋向下降与行业内卷</h1>
+                <p class="subtitle">—— 从价格战到"反内卷"：资本的自我限制 ——</p>
+            </div>
+            <div class="dateline">
+                <span class="no">第拾壹号</span>
+                <span>理论基础：《资本论》第三卷 第13—15章 · 利润率趋向下降的规律</span>
+                <span>二〇二六年七月二十日</span>
+            </div>
+
+            <!-- 核心论点 -->
+            <div class="thesis">
+                <p><strong>核心论点：</strong>光伏组件跌破现金成本、新能源车一年降价数轮、快递单票收入从二十多元降到两元、外卖平台补贴大战烧掉数百亿——"内卷"被解释为文化心态或恶性竞争，但马克思在《资本论》第三卷第三篇给出了更深的诊断：<strong>随着资本积累，资本有机构成（c/v）不断提高，一般利润率趋向下降；资本为自救而采取的一切手段——压价、扩产、降薪、出海、烧钱——恰恰在更大规模上再生产出它想逃避的趋势</strong>。内卷不是病因，是症状；不是竞争的"过度"，而是资本增殖规律在利润率压力下的常规运转。</p>
+            </div>
+
+            <h2><span class="h2no">壹</span>引言：万物皆可"卷"的时代</h2>
+
+            <p>2024年以来，"反内卷"从网络流行语进入最高层政策文件：中央政治局会议提出防止"内卷式"恶性竞争，多部委约谈平台企业与车企，光伏、水泥、钢铁行业协会发起"自律公约"。与此同时，价格战几乎没有停歇：光伏组件价格一度跌破多数企业的现金成本；新能源汽车三年平均降价超过两成；快递单票收入十年间从二十多元跌到两元区间；外卖与即时零售的补贴大战单季烧掉数百亿元。</p>
+
+            <div class="aside">
+                <span class="tag">问 题 的 提 出</span>
+                <p>对内卷的主流解释有三种：文化论（中国人爱竞争、爱吃苦）、道德论（企业家短视、恶性竞争）、供需论（产能过剩）。三者都停留在现象层面。马克思在第三卷提出的问题要深一层：<strong>为什么理性竞争的加总会产生集体灾难？为什么每个资本家"降本增效"的正确决策，合起来是全行业利润率的塌陷？</strong>这不是协调失败，而是利润率趋向下降规律的必然展开——本篇要把"内卷"从心理学词汇还原为政治经济学范畴。</p>
+            </div>
+
+            <h2><span class="h2no">贰</span>理论基石：第三卷第三篇讲了什么</h2>
+
+            <h3>2.1 规律本身：有机构成提高与利润率下降</h3>
+
+            <p>商品价值 = c + v + m。随着积累，机器、厂房、原料（不变资本 c）的增长快于活劳动（可变资本 v）——马克思称之为<strong>资本有机构成提高</strong>。即使剥削率 m′ 不变甚至上升，利润率仍趋向下降，因为分母增长得更快：</p>
+
+            <div class="formula">
+                p′ = <span class="cap">m</span> / (<span class="cap">c</span> + <span class="cap">v</span>)
+                <span class="note">积累推高 c/v —— 分母膨胀 —— 利润率趋向下降</span>
+            </div>
+
+            <blockquote>
+                "一般利润率日益下降的趋势，只是劳动的社会生产力的日益发展在资本主义生产方式下所特有的表现。"
+                <cite>—— 马克思《资本论》第三卷第13章</cite>
+            </blockquote>
+
+            <div class="aside black">
+                <span class="tag">两 个 关 键 点</span>
+                <p>其一，利润率下降<strong>不排除利润量增长</strong>——资本总量膨胀可以掩盖率的趋势，这解释了为什么内卷时代仍有巨型企业；其二，规律意味着<strong>同样的钱越来越难赚</strong>：百万资本年入十万的时代过去了，必须滚动为千万资本才能维持同等的绝对回报——"大吃小"由此成为常态。</p>
+            </div>
+
+            <h3>2.2 起反作用的各种原因：规律为何表现为"趋势"</h3>
+
+            <p>第14章列举了六类反作用因素：<strong>提高劳动剥削程度、工资被压低到劳动力价值以下、不变资本各要素变得便宜、相对过剩人口、对外贸易、股份资本的增加</strong>。马克思强调，这些因素不能取消规律，只能"阻挠、延缓并部分地抵消"它——规律不是直线，而是趋势；反作用因素不是解药，而是镇痛剂。这份150年前的清单，将在4.2节中被证明像一份当代政策工具箱的预言。</p>
+
+            <h3>2.3 规律的内部矛盾：资本的自我限制</h3>
+
+            <p>第15章把规律推到顶点：生产的无限扩张与价值增殖的有限目的发生冲突。</p>
+
+            <blockquote>
+                "资本主义生产的真正限制是资本自身，这就是说：资本及其自行增殖，表现为生产的起点和终点，表现为生产的动机和目的……手段——社会生产力的无条件的发展——不断地和现有资本的增殖这个有限的目的发生冲突。"
+                <cite>—— 马克思《资本论》第三卷第15章</cite>
+            </blockquote>
+
+            <p>矛盾以危机的形式爆发："<strong>危机永远只是现有矛盾的暂时的暴力的解决</strong>"——价格崩盘、产能出清、企业破产，用破坏的方式恢复利润率。内卷与爆雷，是这个机制的和平版与暴力版。</p>
+
+            <h3>2.4 方法论提醒：这不是技术的规律</h3>
+
+            <div class="aside">
+                <span class="tag">常 见 误 读</span>
+                <p>把利润率下降归因于"技术进步本身"。恰恰相反：技术提高劳动生产率，本可缩短全社会的必要劳动时间；是<strong>资本关系</strong>把生产力发展强制纳入"c 膨胀、v 相对萎缩"的形式，并使它表现为利润率的压力。规律是资本关系的规律，不是机器的规律——因此出路也不在技术倒退，而在改变生产力的占有形式。</p>
+            </div>
+
+            <h2><span class="h2no">叁</span>一张表：19世纪利润率压力 × 21世纪中国式内卷</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>维度</th><th>19世纪的利润率压力</th><th>21世纪的内卷</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>有机构成提高</td><td>蒸汽机替代手工织工</td><td>自动化产线、无人仓、AI 替代白领</td></tr>
+                        <tr><td>竞争武器</td><td>降价挤垮同行小作坊</td><td>价格战、补贴战、"全网最低价"</td></tr>
+                        <tr><td>压低劳动成本</td><td>女工童工、延长工作日</td><td>996、外包、众包、灵活用工（呼应第2、7篇）</td></tr>
+                        <tr><td>不变资本便宜化</td><td>铁路与航运降低原料成本</td><td>国产设备替代进口、开源模型拉低技术成本</td></tr>
+                        <tr><td>对外贸易</td><td>向殖民地倾销商品</td><td>产能出海；遭遇关税与反倾销壁垒</td></tr>
+                        <tr><td>股份资本</td><td>铁路股份公司</td><td>风投—上市链条：烧钱换垄断，亏损换估值（呼应第5篇）</td></tr>
+                        <tr><td>危机形式</td><td>十年一度的商业危机</td><td>行业性价格崩盘、共享单车坟场、教培一夜清零</td></tr>
+                        <tr><td>竞争场域</td><td>单个行业内</td><td>全行业同时卷；平台抽租恒定，把卷转嫁给上下游（呼应第3、4篇）</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2><span class="h2no">肆</span>解剖内卷：规律如何显形为价格战</h2>
+
+            <div class="aside black">
+                <span class="tag">系 列 递 进</span>
+                <p>第9篇讲了单个资本追逐超额剩余价值的微观机制，本篇讲它的宏观总和——当所有资本都追逐超额剩余价值，社会价值普遍下降，超额消失，留下的是行业利润率的整体塌陷；第5篇讲虚拟资本的膨胀，本篇将看到虚拟资本如何为内卷输血、把利润率规律的兑现推迟为"爆雷"。</p>
+            </div>
+
+            <h3>4.1 合成谬误：对个别资本理性的，对资本总体是灾难</h3>
+
+            <p>光伏是教科书案例：每家企业扩产、上新技术、压成本，都是完全理性的决策——不这么做立刻出局。但所有企业同时扩产的总和，是产能数倍于全球需求、组件价格跌破现金成本。<strong>这正是第9篇2.4节机制的宏观版</strong>：个别资本靠技术差获得超额剩余价值 → 技术普及 → 社会价值下降 → 超额消失 → 行业利润率塌陷。马克思称之为资本积累的内在逻辑，今人称之为"卷"。不是企业家愚蠢，而是<strong>他们没有别的选项</strong>——规律的强制性恰恰体现在：连看清规律的人也必须照做。</p>
+
+            <h3>4.2 反作用因素的中国版：一份150年前的工具箱</h3>
+
+            <p>对照第14章清单，当代"降本增效"几乎逐条落实：</p>
+
+            <ol>
+                <li><strong>提高剥削程度</strong>：996、一人多岗、OKR 层层加码（呼应第2篇）</li>
+                <li><strong>工资压到劳动力价值以下</strong>：应届生起薪多年停滞、"付费实习"（呼应第6篇：后备军压价在岗者）</li>
+                <li><strong>不变资本便宜化</strong>：国产设备替代进口、开源大模型把 AI 成本拉低一个数量级——它延缓利润率下降，同时立刻掀起新一轮价格战</li>
+                <li><strong>相对过剩人口</strong>：每年千万毕业生与"35岁优化"提供压价空间（呼应第6篇）</li>
+                <li><strong>对外贸易</strong>：产能出海——但遭遇关税壁垒，外贸这条19世纪最畅通的泄压阀正在收窄（见5.2节）</li>
+                <li><strong>股份资本</strong>：风投—IPO 链条允许企业多年亏损经营，用资本市场的钱打价格战（见4.3节）</li>
+            </ol>
+
+            <div class="aside">
+                <span class="tag">注 意 悖 论</span>
+                <p><strong>第3条的悖论：</strong>不变资本便宜化是反作用因素，却同时是有机构成提高的加速器——国产设备越便宜，越多企业上自动化，c/v 上升越快。镇痛剂与病因同源，这正是马克思说反作用因素只能"延缓"而不能"取消"规律的原因。</p>
+            </div>
+
+            <h3>4.3 烧钱内卷：虚拟资本给规律"打麻药"</h3>
+
+            <p>互联网平台把第6条反作用因素发展到了极致：先用融资烧钱补贴用户、挤垮对手（亏损换市场），再用垄断地位收租回血（呼应第3篇：数字地租）。<strong>利润率下降没有被消除，而是被资本市场的估值掩盖、推迟兑现</strong>；当资本退潮，规律以"爆雷"的形式重新显形——共享单车的坟场、社区团购的一地鸡毛、教培行业的一夜清零，都是第15章"暴力的解决"的金融时代版本。</p>
+
+            <h3>4.4 转嫁型内卷：平台不卷自己，卷别人</h3>
+
+            <p>与19世纪不同，今天最内卷的往往不是平台本身，而是被平台组织起来的生产末端：外卖平台抽成率稳定，价格竞争被压给餐饮商家；网约车平台抽佣不降，卷的是司机的在线时长；电商平台"仅退款"的成本由商家承担。<strong>利润率下降被沿产业链向下转嫁，最终落在最无议价能力的环节</strong>——商家、骑手、司机、代工厂（呼应第4、7篇）。头部平台的财务报表反而在内卷加剧时改善：它收取的是"内卷的租金"。</p>
+
+            <h2><span class="h2no">伍</span>超越马克思：内卷的三个新特征</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>新特征</th><th>说明</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>内卷的金融化</strong></td><td>马克思时代，利润率下降较快地显形为危机；今天虚拟资本可以多年补贴亏损企业，把规律的兑现推迟到垄断达成或资本退潮之时——规律没有消失，只是从"慢性病"改以"爆雷"的形式发作（呼应第5篇）</td></tr>
+                        <tr><td>2</td><td><strong>内卷的全球化及其边界</strong></td><td>对外贸易是第14章最重要的泄压阀；当一国制造产能占全球三成，出海便遭遇关税、反倾销与地缘政治的硬边界——19世纪英国面临的问题，今天以更大规模重现</td></tr>
+                        <tr><td>3</td><td><strong>"反内卷"：国家试图给规律划界</strong></td><td>反低价倾销执法、产能预警、行业自律公约，是国家作为"总资本家"对规律的行政干预。但规律根植于资本关系本身：行政手段可以转移内卷（卷向别的行业、别的国家）、延缓内卷，却无法在资本关系内部取消内卷</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2><span class="h2no">陆</span>结论</h2>
+
+            <h3>核心发现</h3>
+
+            <ol>
+                <li><strong>内卷是利润率趋向下降规律的当代症状</strong>——有机构成提高使"同样的钱越来越难赚"，资本的自救手段（降价、扩产、降本）在总量上再生产它想逃避的趋势；个体理性与集体灾难的合一，正是规律的强制形式</li>
+                <li><strong>当代"降本增效"工具箱与第14章反作用因素清单一一对应</strong>——降薪、灵活用工、设备便宜化、出海、股份资本；但反作用因素只能延缓规律，且其中几项（设备便宜化、自动化）同时是规律的加速器</li>
+                <li><strong>烧钱内卷是规律的金融化延期</strong>——虚拟资本补贴价格战，把利润率下降掩盖为估值膨胀，资本退潮时以"爆雷"形式暴力兑现（呼应第5篇）</li>
+                <li><strong>内卷沿产业链向下转嫁</strong>——平台抽租恒定，卷的代价落在商家、骑手、司机与代工厂身上；利润率最薄的环节承受了最残酷的竞争（呼应第3、4、7篇）</li>
+            </ol>
+
+            <h3>出路</h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>层面</th><th>方向</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>制度</td><td>反低价倾销与反垄断执法的一体化：低于成本销售、平台强制"最低价"、二选一的常态化监管；产能预警与有序退出机制，替代"爆雷式"出清</td></tr>
+                        <tr><td>分配</td><td>提高劳动报酬在国民收入中的占比——利润率下降的另一面是需求不足（实现问题），劳动者收入是内需的底座；这正是打破"卷价格—压工资—需求更弱—更卷"循环的杠杆</td></tr>
+                        <tr><td>工时</td><td>把技术进步兑现为<strong>缩短工时</strong>而非降价竞争：同一生产率红利，用于缩短必要劳动则惠及全体，用于资本增殖则加剧内卷（呼应第2、9篇）</td></tr>
+                        <tr><td>观念</td><td>停止把内卷归因于"你不努力"或"同行太狠"：它是资本积累规律的宏观必然。看清这一点，个体的自救才不至于变成互相倾轧，政策的"反内卷"才不会停留在劝诫</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="aside black">
+                <span class="tag">国 际 镜 鉴</span>
+                <p><strong>国际镜鉴：</strong>美国1933年《国家工业复兴法》曾以行业法典限制"毁灭性竞争"、规定最低工资；日本通产省战后长期以行政指导治理"过度竞争"；欧盟对低于成本销售征收反倾销税。这些干预的共同教训是：<strong>可以管住一次价格战，管不住产生价格战的机制</strong>——日本的窗口指导在1990年代泡沫破裂后失效，美国的法典被最高法院裁定违宪后，竞争规律照旧运转。</p>
+            </div>
+
+            <h3>马克思的启示</h3>
+
+            <blockquote>
+                "资本主义生产的真正限制是资本自身……手段——社会生产力的无条件的发展——不断地和现有资本的增殖这个有限的目的发生冲突。"
+                <cite>—— 马克思《资本论》第三卷第15章</cite>
+            </blockquote>
+
+            <div class="aside">
+                <span class="tag">最 后 的 判 断</span>
+                <p><strong>最后的判断：</strong>当光伏企业家们一边签下"反内卷自律公约"、一边继续扩产时，他们不是虚伪，而是别无选择——在资本关系的强制下，停手者先死。马克思第三篇的深刻之处正在于此：<strong>内卷里没有坏人，只有规律的执行者</strong>。因此真正的出路不在更好的竞争伦理，而在让生产力的发展不再以"资本增殖"为唯一目的——当社会生产能力已经足以让所有人摆脱匮乏，继续让它以利润率的名义自我破坏，是这个时代最大的非理性。</p>
+            </div>
+
+            <div class="colophon">
+                <div class="seal">资本论研究</div>
+                <p>报告生成时间：2026年7月20日 · 基于《资本论》第三卷第三篇（第13—15章：利润率趋向下降的规律）分析</p>
+                <p style="margin-top:6px;">重读马克思系列 · 第拾壹号 · 完</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
