@@ -55,7 +55,8 @@
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d['full_name'], d['html_url'], d.get\\('private'\\), d.get\\('homepage'\\)\\)\")",
       "Bash(python -c \"import sys,json; [print\\(c['sha'][:7], c['commit']['committer']['date'], c['commit']['message'].splitlines\\(\\)[0]\\) for c in json.load\\(sys.stdin\\)]\")",
       "Bash(cd *)",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(python3 *)"
     ]
   }
 }

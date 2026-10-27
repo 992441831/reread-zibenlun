@@ -47,6 +47,7 @@ description: 创作「重读马克思」系列下一篇报告。生成 reports/ 
 | 12 | education-involution | 学术期刊论文风（白底、摘要框、关键词、三线表、卷期页眉） |
 | 13 | cooperation-division-of-labor | 黑板粉笔风（深绿黑板+木框、粉笔黄蓝粉、虚线板书框、课堂讲授口吻） |
 | 14 | money-and-digital-currency | 钞票/银行券风（米绿券面、扭索纹双线边框、四角券号、圆形面值章、凹印铭文引文） |
+| 15 | capital-turnover-cash-flow-cult | 股票交易终端/滚动行情风（黑底霓虹绿、顶部滚动 Ticker、 monospace 数据面板、状态指示灯、扫描线网格） |
 | 番外 | tittytainment-marshall-plan | 冷战解密档案风（牛皮纸档案夹+档案卡、打字机字体、TOP SECRET 横幅与红章、涂黑条悬停解密、便签提示框、咖啡渍） |
 | 番外2 | pangdonglai-future-socialism | 超市收银小票风（热敏纸小票+锯齿边缘、等宽明细字体、价签式提示框带打孔、虚线分隔、合计/找零行、"已结账"圆形红章、条形码页脚） |
 
