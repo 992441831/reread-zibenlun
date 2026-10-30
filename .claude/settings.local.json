@@ -56,7 +56,9 @@
       "Bash(python -c \"import sys,json; [print\\(c['sha'][:7], c['commit']['committer']['date'], c['commit']['message'].splitlines\\(\\)[0]\\) for c in json.load\\(sys.stdin\\)]\")",
       "Bash(cd *)",
       "Bash(python -)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "WebFetch(domain:zqq10086.cpolar.cn)",
+      "Read(//tmp/**)"
     ]
   }
 }
